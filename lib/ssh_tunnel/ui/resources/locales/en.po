@@ -1,0 +1,90 @@
+# English translation for SSH Tunnel Manager
+# Copyright (C) 2018 Nicolas Rodriguez <nicoladmin@free.fr>
+# This file is distributed under the same license as the SSH Tunnel Manager package.
+# Nicolas Rodriguez <nicoladmin@free.fr>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-22 04:06+0100\n"
+"PO-Revision-Date: 2018-11-22 04:06+0100\n"
+"Last-Translator: Nicolas Rodriguez <nicoladmin@free.fr>\n"
+"Language-Team: Nicolas Rodriguez <nicoladmin@free.fr>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "File"
+msgstr "File"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Add Host"
+msgstr "Add Host"
+
+msgid "New Host"
+msgstr "New host"
+
+msgid "Edit Host"
+msgstr "Edit Host"
+
+msgid "Remove Host"
+msgstr "Remove Host"
+
+msgid "Add Tunnel"
+msgstr "Add Tunnel"
+
+msgid "New Tunnel"
+msgstr "New Tunnel"
+
+msgid "Edit Tunnel"
+msgstr "Edit Tunnel"
+
+msgid "Remove Tunnel"
+msgstr "Remove Tunnel"
+
+msgid "Start Tunnel"
+msgstr "Start Tunnel"
+
+msgid "Stop Tunnel"
+msgstr "Stop Tunnel"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Tunnel Name"
+msgstr "Tunnel Name"
+
+msgid "Tunnel Type"
+msgstr "Tunnel Type"
+
+msgid "State"
+msgstr "State"
+
+msgid "User"
+msgstr "User"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Local Host"
+msgstr "Local Host"
+
+msgid "Local Port"
+msgstr "Local Port"
+
+msgid "Remote Host"
+msgstr "Remote Host"
+
+msgid "Remote Port"
+msgstr "Remote Port"
+
+msgid "Type"
+msgstr "Type"

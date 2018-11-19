@@ -1,0 +1,22 @@
+dist: trusty
+language: ruby
+sudo: false
+cache: bundler
+rvm:
+  - 2.5.3
+addons:
+  apt:
+    packages:
+      - libatk1.0-dev
+      - libgirepository1.0-dev
+      - libpango1.0-dev
+      - libgtk-3-dev
+before_install:
+  - gem update --system
+  - gem install bundler
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

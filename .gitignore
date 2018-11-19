@@ -1,0 +1,27 @@
+# Ignore bundler config.
+/.bundle
+
+# RVM files
+/.ruby-version
+
+# Gem files
+/*.gem
+
+# Glade files
+*.*\~
+*.*\#
+
+# Temp files
+/tmp/*
+!/tmp/.keep
+
+# SimpleCov files
+/coverage
+
+# Translation files
+/locales/*
+!/locales/.keep
+
+# Snap files
+/*.snap
+/*.bz2

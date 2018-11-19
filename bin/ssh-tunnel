@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path('../lib', __dir__)
+
+require 'ssh-tunnel'
+
+status = SSHTunnel::UI::Application.run!
+exit status

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path('lib', __dir__)
-require 'ssh_tunnel/version'
+require_relative 'lib/ssh_tunnel/version'
 
 Gem::Specification.new do |s|
   s.name        = 'ssh-tunnel'
@@ -15,6 +14,9 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.3.0'
 
+  s.files         = `git ls-files`.split("\n")
+  s.executables   = ['ssh-tunnel']
+
   s.add_dependency 'activesupport', '>= 4.2'
   s.add_dependency 'gettext'
   s.add_dependency 'gtk3'
@@ -25,9 +27,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'simplecov'
-
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
-  s.require_paths = ['lib']
 end

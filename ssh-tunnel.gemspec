@@ -4,7 +4,7 @@ require_relative 'lib/ssh_tunnel/version'
 
 Gem::Specification.new do |s|
   s.name        = 'ssh-tunnel'
-  s.version     = SSHTunnel::VERSION
+  s.version     = SSHTunnel::VERSION::STRING
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Nicolas Rodriguez']
   s.email       = ['nicoladmin@free.fr']

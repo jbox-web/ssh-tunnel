@@ -11,10 +11,10 @@ begin
   require 'gtk3'
 rescue GObjectIntrospection::RepositoryError::TypelibNotFound => e
   puts GObjectIntrospection::Repository.search_path
-  puts %x[ls -hal /usr/lib/x86_64-linux-gnu/girepository-1.0]
-  puts %x[ls -hal /usr/lib/girepository-1.0]
-  puts %x[ls -hal /usr/lib]
-  puts %x[ls -hal /]
+  puts %x(ls -hal /usr/lib/x86_64-linux-gnu/girepository-1.0)
+  puts %x(ls -hal /usr/lib/girepository-1.0)
+  puts %x(ls -hal /usr/lib)
+  puts %x(ls -hal /)
   require 'gtk3'
 end
 

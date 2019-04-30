@@ -43,6 +43,9 @@ Layout/EmptyLineBetweenDefs:
 Layout/AlignHash:
   Enabled: false
 
+Style/CommandLiteral:
+  EnforcedStyle: percent_x
+
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 

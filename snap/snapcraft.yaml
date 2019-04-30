@@ -21,7 +21,7 @@ parts:
     source: https://github.com/jbox-web/ssh-tunnel.git
     source-type: git
     plugin: ruby
-    ruby-version: 2.5.3
+    ruby-version: 2.6.3
     after:
       - desktop-gtk3
     build-packages:

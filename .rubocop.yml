@@ -1,16 +1,13 @@
 AllCops:
   TargetRubyVersion: 2.4
   Exclude:
-    - bin/rubocop
+    - bin/*
     - spec/**/*
 
 Documentation:
   Enabled: false
 
 Metrics/AbcSize:
-  Enabled: false
-
-Metrics/LineLength:
   Enabled: false
 
 Metrics/MethodLength:
@@ -22,8 +19,11 @@ Metrics/ModuleLength:
 Metrics/ClassLength:
   Max: 160
 
+Layout/LineLength:
+  Enabled: false
+
 Layout/IndentationConsistency:
-  EnforcedStyle: rails
+  EnforcedStyle: indented_internal_methods
 
 Layout/EmptyLines:
   Enabled: false
@@ -40,7 +40,7 @@ Layout/EmptyLinesAroundModuleBody:
 Layout/EmptyLineBetweenDefs:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 Style/CommandLiteral:

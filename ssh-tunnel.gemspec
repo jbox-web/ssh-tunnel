@@ -14,8 +14,10 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.5.0'
 
-  s.files         = %x(git ls-files).split("\n")
-  s.executables   = ['ssh-tunnel']
+  s.files = %x(git ls-files).split("\n")
+
+  s.bindir      = 'exe'
+  s.executables = ['ssh-tunnel']
 
   s.add_dependency 'activesupport', '>= 4.2'
   s.add_dependency 'gettext'

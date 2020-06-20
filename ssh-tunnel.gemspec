@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.bindir      = 'exe'
   s.executables = ['ssh-tunnel']
 
-  s.add_dependency 'activesupport', '>= 4.2'
+  s.add_dependency 'activesupport', '>= 5.2'
   s.add_dependency 'gettext'
   s.add_dependency 'gtk3'
   s.add_dependency 'subprocess'

@@ -5,9 +5,7 @@ module SSHTunnel
     module Models
       class Config
 
-        attr_reader :file
-        attr_reader :data
-        attr_reader :hosts
+        attr_reader :file, :data, :hosts
 
 
         def initialize(file)

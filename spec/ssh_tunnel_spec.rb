@@ -13,13 +13,13 @@ describe SSHTunnel do
 
   describe '.resources_path' do
     it 'should return resources_path path' do
-      expect(described_class.resources_path).to eq BASE_PATH.join('lib', 'ssh_tunnel', 'ui', 'resources')
+      expect(described_class.resources_path).to eq BASE_PATH.join('resources')
     end
   end
 
   describe '.resources_xml' do
     it 'should return resources_xml path' do
-      expect(described_class.resources_xml).to eq BASE_PATH.join('lib', 'ssh_tunnel', 'ui', 'resources').join('gresources.xml')
+      expect(described_class.resources_xml).to eq BASE_PATH.join('resources').join('gresources.xml')
     end
   end
 

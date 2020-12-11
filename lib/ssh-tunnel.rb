@@ -70,7 +70,7 @@ module SSHTunnel
 
 
   def self.resources_path
-    @resources_path ||= base_path.join('lib', 'ssh_tunnel', 'ui', 'resources')
+    @resources_path ||= base_path.join('resources')
   end
 
 

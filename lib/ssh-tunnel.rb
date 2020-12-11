@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
-require 'fileutils'
-require 'json'
-require 'yaml'
-
-require 'gettext'
-require 'subprocess'
-
+# Require Gtk3 first. If it fails nothing works.
 begin
   require 'gtk3'
 rescue GObjectIntrospection::RepositoryError::TypelibNotFound => e
@@ -17,6 +11,14 @@ rescue GObjectIntrospection::RepositoryError::TypelibNotFound => e
   puts %x(ls -hal /)
   require 'gtk3'
 end
+
+# Require other libs
+require 'fileutils'
+require 'json'
+require 'yaml'
+
+require 'gettext'
+require 'subprocess'
 
 require 'active_support/concern'
 require 'active_support/core_ext/hash'

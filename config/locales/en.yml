@@ -1,0 +1,64 @@
+---
+en:
+  menu:
+    quit: Quit
+    about: About
+
+  window:
+    host:
+      new: New Host
+      edit: "Edit Host - %{host}"
+      remove: "Remove Host - %{host}"
+    tunnel:
+      new: New Tunnel
+      edit: "Edit Tunnel - %{tunnel}"
+      remove: "Remove Tunnel - %{tunnel}"
+
+  tooltip:
+    host:
+      add: Add Host
+      edit: Edit Host
+      remove: Remove Host
+    tunnel:
+      add: Add Tunnel
+      edit: Edit Tunnel
+      remove: Remove Tunnel
+      start: Start Tunnel
+      stop: Stop Tunnel
+
+  form:
+    host:
+      name: Name
+      user: User
+      host: Host
+      port: Port
+    tunnel:
+      name: Name
+      type: Type
+      local: Local
+      remote: Remote
+      local_host: Local Host
+      local_port: Local Port
+      remote_host: Remote Host
+      remote_port: Remote Port
+
+  button:
+    add: Add
+    edit: Edit
+    remove: Remove
+    cancel: Cancel
+    submit: Save
+
+  view:
+    host:
+      state: State
+      name: Name
+      user: User
+      host: Host
+      port: Port
+      tunnel_name: Tunnel Name
+      tunnel_type: Tunnel Type
+      local_host: Local Host
+      local_port: Local Port
+      remote_host: Remote Host
+      remote_port: Remote Port

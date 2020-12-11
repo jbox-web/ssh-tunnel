@@ -165,17 +165,17 @@ module SSHTunnel
 
 
           def hosts_treeview_add_columns(treeview)
-            add_image_column(treeview, _('State'),       'icon-name': HOST_STATE_COLUMN)
-            add_text_column(treeview,  _('Name'),        text: HOST_TITLE_COLUMN)
-            add_text_column(treeview,  _('User'),        text: HOST_USER_COLUMN)
-            add_text_column(treeview,  _('Host'),        text: HOST_NAME_COLUMN)
-            add_text_column(treeview,  _('Port'),        text: HOST_PORT_COLUMN)
-            add_text_column(treeview,  _('Tunnel Name'), text: TUNNEL_NAME_COLUMN)
-            add_text_column(treeview,  _('Tunnel Type'), text: TUNNEL_TYPE_COLUMN)
-            add_text_column(treeview,  _('Local Host'),  text: TUNNEL_LOCAL_HOST_COLUMN)
-            add_text_column(treeview,  _('Local Port'),  text: TUNNEL_LOCAL_PORT_COLUMN)
-            add_text_column(treeview,  _('Remote Host'), text: TUNNEL_REMOTE_HOST_COLUMN)
-            add_text_column(treeview,  _('Remote Port'), text: TUNNEL_REMOTE_PORT_COLUMN)
+            add_image_column(treeview, t('view.host.state'),       'icon-name': HOST_STATE_COLUMN)
+            add_text_column(treeview,  t('view.host.name'),        text: HOST_TITLE_COLUMN)
+            add_text_column(treeview,  t('view.host.user'),        text: HOST_USER_COLUMN)
+            add_text_column(treeview,  t('view.host.host'),        text: HOST_NAME_COLUMN)
+            add_text_column(treeview,  t('view.host.port'),        text: HOST_PORT_COLUMN)
+            add_text_column(treeview,  t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN)
+            add_text_column(treeview,  t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN)
+            add_text_column(treeview,  t('view.host.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN)
+            add_text_column(treeview,  t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN)
+            add_text_column(treeview,  t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN)
+            add_text_column(treeview,  t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN)
           end
 
 

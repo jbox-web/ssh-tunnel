@@ -25,7 +25,7 @@ module SSHTunnel
           super
 
           # Set window title
-          set_title "#{_('Edit Tunnel')} - #{tunnel.name}"
+          set_title t('window.tunnel.edit', tunnel: tunnel.name)
 
           # Fills input fields
           input_name.text        = @tunnel.name
@@ -42,6 +42,7 @@ module SSHTunnel
 
           # rubocop:disable Metrics/MethodLength, Layout/CommentIndentation
           def bind_submit_button
+            button_submit.label = t('button.submit')
             button_submit.signal_connect :clicked do
               @tunnel.name        = input_name.text
               @tunnel.type        = input_type.active_id

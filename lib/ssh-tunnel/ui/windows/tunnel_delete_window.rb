@@ -28,7 +28,7 @@ module SSHTunnel
           super
 
           # Set window title
-          set_title "#{_('Remove Tunnel')} - #{tunnel.name}"
+          set_title t('window.tunnel.remove', tunnel: tunnel.name)
 
           # Set instance variables
           @tunnel = tunnel
@@ -40,6 +40,7 @@ module SSHTunnel
 
 
           def bind_submit_button
+            button_submit.label = t('button.submit')
             button_submit.signal_connect :clicked do
               @host.remove_tunnel(@tunnel)
               @application.config.save!

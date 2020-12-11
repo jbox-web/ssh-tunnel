@@ -23,7 +23,7 @@ module SSHTunnel
         def initialize(application)
           super application: application
 
-          set_title _('About')
+          set_title t('window.about')
         end
 
       end

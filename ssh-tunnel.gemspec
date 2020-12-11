@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   s.executables = ['ssh-tunnel']
 
   s.add_dependency 'activesupport', '>= 5.2'
-  s.add_dependency 'gettext'
   s.add_dependency 'gtk3'
+  s.add_dependency 'i18n'
   s.add_dependency 'subprocess'
   s.add_dependency 'zeitwerk'
 

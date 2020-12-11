@@ -25,7 +25,7 @@ module SSHTunnel
           super
 
           # Set window title
-          set_title "#{_('Edit Host')} - #{host}"
+          set_title t('window.host.edit', host: host)
 
           # Fills input fields
           input_name.text = @host.name
@@ -40,6 +40,7 @@ module SSHTunnel
 
           # rubocop:disable Metrics/MethodLength, Layout/CommentIndentation
           def bind_submit_button
+            button_submit.label = t('button.submit')
             button_submit.signal_connect :clicked do
               @host.name = input_name.text
               @host.user = input_user.text

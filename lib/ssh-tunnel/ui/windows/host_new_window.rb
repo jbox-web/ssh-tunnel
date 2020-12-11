@@ -25,7 +25,7 @@ module SSHTunnel
           super
 
           # Set window title
-          set_title _('New Host')
+          set_title t('window.host.new')
         end
 
 
@@ -34,6 +34,7 @@ module SSHTunnel
 
           # rubocop:disable Metrics/MethodLength, Layout/CommentIndentation
           def bind_submit_button
+            button_submit.label = t('button.submit')
             button_submit.signal_connect :clicked do
               @host.name = input_name.text
               @host.user = input_user.text

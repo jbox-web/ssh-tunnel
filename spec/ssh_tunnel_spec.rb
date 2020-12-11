@@ -41,12 +41,6 @@ describe SSHTunnel do
     end
   end
 
-  describe '.locales_path' do
-    it 'should return locales_path path' do
-      expect(described_class.locales_path).to eq USER_DATA_PATH.join('locales')
-    end
-  end
-
   describe '.config_file_path' do
     it 'should return config_file_path path' do
       expect(described_class.config_file_path).to eq USER_DATA_PATH.join('config.yml')

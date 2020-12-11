@@ -24,6 +24,7 @@ module SSHTunnel
             def bind_cancel_button
               # Not all modals have a cancel button
               if respond_to?(:button_cancel)
+                button_cancel.label = t('button.cancel')
                 button_cancel.signal_connect :clicked do
                   close
                 end

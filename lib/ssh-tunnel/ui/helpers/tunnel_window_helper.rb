@@ -47,18 +47,18 @@ module SSHTunnel
 
 
           def set_input_labels
-            label_name.text        = _('Name')
-            label_type.text        = _('Type')
-            label_local_host.text  = _('Local Host')
-            label_local_port.text  = _('Local Port')
-            label_remote_host.text = _('Remote Host')
-            label_remote_port.text = _('Remote Port')
+            label_name.text        = t('form.tunnel.name')
+            label_type.text        = t('form.tunnel.type')
+            label_local_host.text  = t('form.tunnel.local_host')
+            label_local_port.text  = t('form.tunnel.local_port')
+            label_remote_host.text = t('form.tunnel.remote_host')
+            label_remote_port.text = t('form.tunnel.remote_port')
           end
 
 
           def load_tunnels_combobox
-            input_type.append('local', _('Local'))
-            input_type.append('remote', _('Remote'))
+            input_type.append('local', t('form.tunnel.local'))
+            input_type.append('remote', t('form.tunnel.remote'))
           end
 
       end

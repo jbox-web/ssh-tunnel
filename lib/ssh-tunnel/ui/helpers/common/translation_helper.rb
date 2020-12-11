@@ -7,9 +7,8 @@ module SSHTunnel
         module TranslationHelper
           extend ActiveSupport::Concern
 
-          included do
-            include GetText
-            bindtextdomain 'com.jbox-web.ssh-tunnel', path: SSHTunnel.locales_path.to_s
+          def t(*args)
+            I18n.t(*args)
           end
 
         end

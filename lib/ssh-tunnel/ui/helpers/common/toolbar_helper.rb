@@ -23,10 +23,12 @@ module SSHTunnel
                 @application.quit
               end
 
+              menu_quit.label = t('menu.quit')
               menu_quit.signal_connect :activate do
                 @application.quit
               end
 
+              menu_about.label = t('menu.about')
               menu_about.signal_connect :activate do
                 window = SSHTunnel::UI::Windows::AboutWindow.new(@application)
                 window.present
@@ -44,7 +46,7 @@ module SSHTunnel
 
 
             def bind_toolbar_button_add
-              button_add.tooltip_text = _('Add Host')
+              button_add.tooltip_text = t('tooltip.host.add')
               button_add.signal_connect :clicked do
                 with_new_host_model do |object|
                   window = SSHTunnel::UI::Windows::HostNewWindow.new(@application, self, object)
@@ -55,7 +57,7 @@ module SSHTunnel
 
 
             def bind_toolbar_button_edit
-              button_edit.tooltip_text = _('Edit Host')
+              button_edit.tooltip_text = t('tooltip.host.edit')
               button_edit.signal_connect :clicked do
                 with_host_model do |object|
                   window = SSHTunnel::UI::Windows::HostEditWindow.new(@application, self, object)
@@ -66,7 +68,7 @@ module SSHTunnel
 
 
             def bind_toolbar_button_remove
-              button_remove.tooltip_text = _('Remove Host')
+              button_remove.tooltip_text = t('tooltip.host.remove')
               button_remove.signal_connect :clicked do
                 with_host_model do |object|
                   window = SSHTunnel::UI::Windows::HostDeleteWindow.new(@application, self, object)
@@ -77,7 +79,7 @@ module SSHTunnel
 
 
             def bind_toolbar_button_start
-              button_start.tooltip_text = _('Start Tunnel')
+              button_start.tooltip_text = t('tooltip.tunnel.start')
               button_start.signal_connect :clicked do
                 with_host_model do |object|
                   object.start_tunnels!
@@ -88,7 +90,7 @@ module SSHTunnel
 
 
             def bind_toolbar_button_stop
-              button_stop.tooltip_text = _('Stop Tunnel')
+              button_stop.tooltip_text = t('tooltip.tunnel.stop')
               button_stop.signal_connect :clicked do
                 with_host_model do |object|
                   object.stop_tunnels!

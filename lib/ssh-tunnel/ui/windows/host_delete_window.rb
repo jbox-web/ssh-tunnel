@@ -28,7 +28,7 @@ module SSHTunnel
           super
 
           # Set window title
-          set_title "#{_('Remove Host')} - #{host}"
+          set_title t('window.host.remove', host: host)
 
           # Set instance variables
           @host = host
@@ -39,6 +39,7 @@ module SSHTunnel
 
 
           def bind_submit_button
+            button_submit.label = t('button.submit')
             button_submit.signal_connect :clicked do
               @application.config.remove_host(@host)
               @application.config.save!

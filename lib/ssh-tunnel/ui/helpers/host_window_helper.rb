@@ -95,12 +95,12 @@ module SSHTunnel
 
 
           def tunnels_treeview_add_columns(treeview)
-            add_text_column(treeview, _('Name'),        text: TUNNEL_NAME_COLUMN)
-            add_text_column(treeview, _('Type'),        text: TUNNEL_TYPE_COLUMN)
-            add_text_column(treeview, _('Local Host'),  text: TUNNEL_LOCAL_HOST_COLUMN)
-            add_text_column(treeview, _('Local Port'),  text: TUNNEL_LOCAL_PORT_COLUMN)
-            add_text_column(treeview, _('Remote Host'), text: TUNNEL_REMOTE_HOST_COLUMN)
-            add_text_column(treeview, _('Remote Port'), text: TUNNEL_REMOTE_PORT_COLUMN)
+            add_text_column(treeview, t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN)
+            add_text_column(treeview, t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN)
+            add_text_column(treeview, t('view.host.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN)
+            add_text_column(treeview, t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN)
+            add_text_column(treeview, t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN)
+            add_text_column(treeview, t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN)
           end
 
 
@@ -112,16 +112,17 @@ module SSHTunnel
 
 
           def set_input_labels
-            label_name.text = _('Name')
-            label_user.text = _('User')
-            label_host.text = _('Host')
-            label_port.text = _('Port')
+            label_name.text = t('form.host.name')
+            label_user.text = t('form.host.user')
+            label_host.text = t('form.host.host')
+            label_port.text = t('form.host.port')
           end
 
 
           # rubocop:disable Metrics/MethodLength
           def bind_tunnels_buttons
-            button_add.tooltip_text = _('Add Tunnel')
+            button_add.label = t('button.add')
+            button_add.tooltip_text = t('tooltip.tunnel.add')
             button_add.signal_connect :clicked do
               with_new_tunnel_model do |object|
                 window = SSHTunnel::UI::Windows::TunnelNewWindow.new(application, self, object)
@@ -129,7 +130,8 @@ module SSHTunnel
               end
             end
 
-            button_edit.tooltip_text = _('Edit Tunnel')
+            button_edit.label = t('button.edit')
+            button_edit.tooltip_text = t('tooltip.tunnel.edit')
             button_edit.signal_connect :clicked do
               with_tunnel_model do |object|
                 window = SSHTunnel::UI::Windows::TunnelEditWindow.new(application, self, object)
@@ -137,7 +139,8 @@ module SSHTunnel
               end
             end
 
-            button_remove.tooltip_text = _('Remove Tunnel')
+            button_remove.label = t('button.remove')
+            button_remove.tooltip_text = t('tooltip.tunnel.remove')
             button_remove.signal_connect :clicked do
               with_tunnel_model do |object|
                 window = SSHTunnel::UI::Windows::TunnelDeleteWindow.new(application, self, object)

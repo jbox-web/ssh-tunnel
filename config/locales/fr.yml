@@ -1,0 +1,65 @@
+---
+fr:
+  menu:
+    quit: Quitter
+    about: A propos
+
+  window:
+    host:
+      new: Nouvel hôte
+      edit: "Modifier l'hôte - %{host}"
+      remove: "Supprimer l'hôte - %{host}"
+    tunnel:
+      new: Nouveau tunnel
+      edit: "Modifier le tunnel - %{tunnel}"
+      remove: "Supprimer le tunnel - %{tunnel}"
+
+  tooltip:
+    host:
+      add: Ajouter un hôte
+      edit: Modifier l'hôte
+      remove: Supprimer l'hôte
+    tunnel:
+      add: Ajouter un tunnel
+      edit: Modifier le tunnel
+      remove: Supprimer le tunnel
+      start: Démarrer le tunnel
+      stop: Arrêter le tunnel
+
+  form:
+    host:
+      name: Nom
+      user: Utilisateur
+      host: Hôte
+      port: Port
+    tunnel:
+      name: Nom
+      type: Type
+      local: Local
+      remote: Distant
+      local_host: Hôte local
+      local_port: Port local
+      remote_host: Hôte distant
+      remote_port: Port distant
+
+  button:
+    add: Ajouter
+    edit: Modifier
+    remove: Supprimer
+    cancel: Annuler
+    submit: Enregistrer
+
+  view:
+    host:
+      state: Etat
+      name: Nom
+      user: Utilisateur
+      host: Hôte
+      port: Port
+      tunnel_name: Nom
+      tunnel_type: Type
+      local_host: Hôte local
+      local_port: Port local
+      remote_host: Hôte distant
+      remote_port: Port distant
+      auto_start: Démarrage auto

@@ -10,7 +10,6 @@ module SSHTunnel
           create_directories!
           compile_resources!
           load_resources!
-          compile_locales!
           load_locales!
           run_application!
         end
@@ -21,14 +20,10 @@ module SSHTunnel
 
           def create_directories!
             return if File.directory?(SSHTunnel.user_data_path) &&
-                      File.directory?(SSHTunnel.locales_path.join('fr', 'LC_MESSAGES')) &&
-                      File.directory?(SSHTunnel.locales_path.join('en', 'LC_MESSAGES')) &&
                       File.directory?(SSHTunnel.tmp_path)
 
             FileUtils.mkdir_p SSHTunnel.user_data_path
             FileUtils.mkdir_p SSHTunnel.tmp_path
-            FileUtils.mkdir_p SSHTunnel.locales_path.join('fr', 'LC_MESSAGES')
-            FileUtils.mkdir_p SSHTunnel.locales_path.join('en', 'LC_MESSAGES')
           end
 
 
@@ -49,14 +44,10 @@ module SSHTunnel
           end
 
 
-          def compile_locales!
-            system('rmsgfmt', SSHTunnel.resources_path.join('locales', 'fr.po').to_s, '-o', SSHTunnel.locales_path.join('fr', 'LC_MESSAGES', 'com.jbox-web.ssh-tunnel.mo').to_s)
-            system('rmsgfmt', SSHTunnel.resources_path.join('locales', 'en.po').to_s, '-o', SSHTunnel.locales_path.join('en', 'LC_MESSAGES', 'com.jbox-web.ssh-tunnel.mo').to_s)
-          end
-
-
           def load_locales!
-            GLib::GetText.bindtextdomain 'com.jbox-web.ssh-tunnel', SSHTunnel.locales_path.to_s
+            I18n.load_path << Dir[SSHTunnel.base_path.join('config', 'locales', '*.yml')]
+            I18n.available_locales = [:en, :fr]
+            I18n.default_locale = :en
           end
 
 

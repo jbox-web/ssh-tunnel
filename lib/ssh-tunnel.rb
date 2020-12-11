@@ -17,7 +17,7 @@ require 'fileutils'
 require 'json'
 require 'yaml'
 
-require 'gettext'
+require 'i18n'
 require 'subprocess'
 
 require 'active_support/concern'
@@ -49,11 +49,6 @@ module SSHTunnel
 
   def self.user_data_path
     @user_data_path ||= Pathname.new(File.expand_path('~/.config/ssh-tunnel'))
-  end
-
-
-  def self.locales_path
-    @locales_path ||= user_data_path.join('locales')
   end
 
 

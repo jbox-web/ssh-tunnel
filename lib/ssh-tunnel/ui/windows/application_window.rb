@@ -30,7 +30,7 @@ module SSHTunnel
           @application = application
 
           # Set window title
-          set_title _('SSH Tunnel Manager')
+          set_title 'SSH Tunnel Manager'
 
           # Load hosts treeview
           load_hosts_treeview

@@ -6,6 +6,7 @@ PATH
       gettext
       gtk3
       subprocess
+      zeitwerk
 
 GEM
   remote: https://rubygems.org/

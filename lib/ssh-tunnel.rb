@@ -24,45 +24,13 @@ require 'active_support/concern'
 require 'active_support/core_ext/hash'
 require 'active_support/core_ext/string'
 
+require 'zeitwerk'
+loader = Zeitwerk::Loader.for_gem
+loader.inflector.inflect 'ssh-tunnel' => 'SSHTunnel'
+loader.inflector.inflect 'ui' => 'UI'
+loader.setup
 
 module SSHTunnel
-
-  module UI
-    autoload :Application, 'ssh_tunnel/ui/application'
-    autoload :StatusIcon,  'ssh_tunnel/ui/status_icon'
-
-    module Helpers
-      autoload :ApplicationWindowHelper, 'ssh_tunnel/ui/windows/helpers/application_window_helper'
-      autoload :HostWindowHelper,        'ssh_tunnel/ui/windows/helpers/host_window_helper'
-      autoload :TunnelWindowHelper,      'ssh_tunnel/ui/windows/helpers/tunnel_window_helper'
-
-      module Common
-        autoload :FormHelper,              'ssh_tunnel/ui/windows/helpers/common/form_helper'
-        autoload :MinimizeHelper,          'ssh_tunnel/ui/windows/helpers/common/minimize_helper'
-        autoload :ModalHelper,             'ssh_tunnel/ui/windows/helpers/common/modal_helper'
-        autoload :ToolbarHelper,           'ssh_tunnel/ui/windows/helpers/common/toolbar_helper'
-        autoload :TranslationHelper,       'ssh_tunnel/ui/windows/helpers/common/translation_helper'
-      end
-    end
-
-    module Models
-      autoload :Config, 'ssh_tunnel/ui/models/config'
-      autoload :Host,   'ssh_tunnel/ui/models/host'
-      autoload :Tunnel, 'ssh_tunnel/ui/models/tunnel'
-    end
-
-    module Windows
-      autoload :AboutWindow,        'ssh_tunnel/ui/windows/about_window'
-      autoload :ApplicationWindow,  'ssh_tunnel/ui/windows/application_window'
-      autoload :HostNewWindow,      'ssh_tunnel/ui/windows/host_new_window'
-      autoload :HostEditWindow,     'ssh_tunnel/ui/windows/host_edit_window'
-      autoload :HostDeleteWindow,   'ssh_tunnel/ui/windows/host_delete_window'
-      autoload :TunnelNewWindow,    'ssh_tunnel/ui/windows/tunnel_new_window'
-      autoload :TunnelEditWindow,   'ssh_tunnel/ui/windows/tunnel_edit_window'
-      autoload :TunnelDeleteWindow, 'ssh_tunnel/ui/windows/tunnel_delete_window'
-    end
-  end
-
 
   def self.base_path
     @base_path ||= Pathname.new File.expand_path('..', __dir__)

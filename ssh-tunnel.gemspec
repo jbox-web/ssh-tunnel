@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/ssh_tunnel/version'
+require_relative 'lib/ssh-tunnel/version'
 
 Gem::Specification.new do |s|
   s.name        = 'ssh-tunnel'
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'gettext'
   s.add_dependency 'gtk3'
   s.add_dependency 'subprocess'
+  s.add_dependency 'zeitwerk'
 
   s.add_development_dependency 'factory_bot'
   s.add_development_dependency 'pry'

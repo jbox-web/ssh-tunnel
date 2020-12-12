@@ -16,6 +16,9 @@ end
 require 'fileutils'
 require 'json'
 require 'yaml'
+require 'singleton'
+require 'optparse'
+require 'tmpdir'
 
 require 'i18n'
 require 'subprocess'
@@ -28,17 +31,20 @@ require 'zeitwerk'
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect 'ssh-tunnel' => 'SSHTunnel'
 loader.inflector.inflect 'ui' => 'UI'
+loader.inflector.inflect 'cli' => 'CLI'
 loader.setup
 
 module SSHTunnel
 
-  def self.base_path
-    @base_path ||= Pathname.new File.expand_path('..', __dir__)
+  ROOT_PATH = Pathname.new File.expand_path('..', __dir__)
+
+  def self.root_path
+    ROOT_PATH
   end
 
 
   def self.resources_path
-    @resources_path ||= base_path.join('resources')
+    @resources_path ||= root_path.join('resources')
   end
 
 
@@ -47,33 +53,28 @@ module SSHTunnel
   end
 
 
-  def self.user_data_path
-    @user_data_path ||= Pathname.new(File.expand_path('~/.config/ssh-tunnel'))
-  end
-
-
-  def self.tmp_path
-    @tmp_path ||= user_data_path.join('tmp')
-  end
-
-
   def self.resources_bin
-    @resources_bin ||= tmp_path.join('gresource.bin')
+    @resources_bin ||= Pathname.new(Dir.tmpdir).join('gresources.bin')
   end
 
 
-  def self.config_file_path
-    @config_file_path ||= user_data_path.join('config.yml')
+  def self.locales_path
+    root_path.join('config', 'locales', '*.yml')
   end
 
 
-  def self.config
-    @config ||= load_config(config_file_path)
+  def self.current_locale
+    Gtk.default_language.to_s.split('-').first.to_sym
   end
 
 
   def self.load_config(file)
-    SSHTunnel::UI::Models::Config.new(file)
+    @config = SSHTunnel::UI::Models::Config.new(file)
+  end
+
+
+  def self.config
+    @config
   end
 
 end

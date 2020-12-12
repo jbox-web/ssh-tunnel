@@ -5,5 +5,10 @@ $LOAD_PATH.push File.expand_path('../lib', __dir__)
 
 require 'ssh-tunnel'
 
-status = SSHTunnel::UI::Application.run!
+# Parse options
+cli = SSHTunnel::CLI.instance
+cli.parse
+
+# Start application
+status = cli.run
 exit status

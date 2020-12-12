@@ -84,7 +84,9 @@ module SSHTunnel
           window = SSHTunnel::UI::Windows::ApplicationWindow.new(application)
           window.present
 
-          SSHTunnel::UI::StatusIcon.new(application, window)
+          # Gtk::StatusIcon is deprecated
+          # See: https://developer.gnome.org/gtk3/stable/GtkStatusIcon.html#gtk-status-icon-new
+          # SSHTunnel::UI::StatusIcon.new(application, window)
         end
       end
       # rubocop:enable Metrics/MethodLength

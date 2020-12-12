@@ -1,12 +1,15 @@
 FactoryBot.define do
-  factory :tunnel, class: SSHTunnel::UI::Models::Tunnel do |f|
-    f.initialize_with { new(parent: build(:host)) }
+  factory :tunnel, class: 'SSHTunnel::UI::Models::Tunnel' do
 
-    f.name        { 'mysql' }
-    f.type        { 'local' }
-    f.local_host  { '127.0.0.1' }
-    f.local_port  { '10000' }
-    f.remote_host { '127.0.0.1' }
-    f.remote_port { '3306' }
+    name        { 'mysql' }
+    type        { 'local' }
+    local_host  { '127.0.0.1' }
+    local_port  { 10000 }
+    remote_host { '127.0.0.1' }
+    remote_port { 3306 }
+
+    factory :tunnel_wih_parent do
+      parent { build(:host) }
+    end
   end
 end

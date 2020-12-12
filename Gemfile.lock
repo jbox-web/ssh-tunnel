@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     ssh-tunnel (1.0.0)
+      activemodel (>= 5.2)
       activesupport (>= 5.2)
       gtk3
       i18n
@@ -11,6 +12,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (6.1.0)
+      activesupport (= 6.1.0)
     activesupport (6.1.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)

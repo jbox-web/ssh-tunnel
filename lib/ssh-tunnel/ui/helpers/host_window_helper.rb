@@ -7,22 +7,27 @@ module SSHTunnel
 
         include SSHTunnel::UI::Helpers::Common::ModalHelper
         include SSHTunnel::UI::Helpers::Common::TranslationHelper
-
+        include SSHTunnel::UI::Helpers::Common::FormHelper::InstanceMethods
 
         def self.included(base)
           base.extend(ClassMethods)
-          base.extend(SSHTunnel::UI::Helpers::Common::FormHelper)
+          base.extend(SSHTunnel::UI::Helpers::Common::FormHelper::ClassMethods)
         end
+
+        FORM_BUTTONS = %w[submit cancel add edit remove].freeze
+        FORM_FIELDS  = {
+          name: :text,
+          user: :text,
+          host: :text,
+          port: :text,
+        }.freeze
 
 
         module ClassMethods
 
-          FORM_BUTTONS = %w[submit cancel add edit remove].freeze
-          FORM_FIELDS  = %w[name user host port].freeze
-
           def init
             bind_buttons(FORM_BUTTONS)
-            bind_form_fields(FORM_FIELDS)
+            bind_form_fields(FORM_FIELDS.keys)
             bind_template_child 'tunnels_scrolled_window'
           end
 
@@ -172,6 +177,23 @@ module SSHTunnel
 
           def with_new_tunnel_model
             yield SSHTunnel::UI::Models::Tunnel.new(parent: @host)
+          end
+
+
+          def form_fields
+            FORM_FIELDS
+          end
+
+
+          def form_object
+            SSHTunnel::UI::Forms::HostForm.new(@host)
+          end
+
+
+          def save_and_reload_view
+            @application.config.save!
+            close
+            @window.reload_hosts_treeview
           end
 
       end

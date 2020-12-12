@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.bindir      = 'exe'
   s.executables = ['ssh-tunnel']
 
+  s.add_runtime_dependency 'activemodel', '>= 5.2'
   s.add_runtime_dependency 'activesupport', '>= 5.2'
   s.add_runtime_dependency 'gtk3'
   s.add_runtime_dependency 'i18n'

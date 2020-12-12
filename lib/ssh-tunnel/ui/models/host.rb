@@ -5,8 +5,7 @@ module SSHTunnel
     module Models
       class Host
 
-        attr_accessor :name, :user, :host, :port
-        attr_reader   :tunnels, :errors
+        attr_accessor :name, :user, :host, :port, :tunnels
 
 
         def initialize(opts = {})
@@ -16,7 +15,6 @@ module SSHTunnel
           @port    = opts[:port]
           @tunnels = opts.fetch(:tunnels, []).map { |t_attr| Tunnel.new(t_attr.merge(parent: self)) }
           @started = false
-          @errors  = []
         end
 
 
@@ -32,16 +30,6 @@ module SSHTunnel
 
         def remove_tunnel(tunnel)
           @tunnels.delete(tunnel)
-        end
-
-
-        def valid?
-          validate_presence_of(:name)
-          validate_presence_of(:user)
-          validate_presence_of(:host)
-          validate_presence_of(:port)
-
-          errors.empty?
         end
 
 
@@ -80,17 +68,6 @@ module SSHTunnel
             start_tunnels!
           end
         end
-
-
-        private
-
-
-          def validate_presence_of(field)
-            return true if send(field).present?
-
-            @errors << "#{field} is empty"
-            false
-          end
 
       end
     end

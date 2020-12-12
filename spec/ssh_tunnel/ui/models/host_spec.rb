@@ -4,36 +4,21 @@ RSpec.describe SSHTunnel::UI::Models::Host do
 
   let(:host) { FactoryBot.build(:host) }
 
-  describe 'valid host' do
-    it 'should have a name/user/host/port set' do
-      expect(host.valid?).to be true
-      expect(host.errors).to eq []
+  describe '#to_s' do
+    it 'should return host name' do
+      expect(host.to_s).to eq host.name
     end
   end
 
-  describe 'invalid host' do
-    it 'should have a name' do
-      host = FactoryBot.build(:host, name: '')
-      expect(host.valid?).to be false
-      expect(host.errors).to eq ['name is empty']
-    end
-
-    it 'should have a user' do
-      host = FactoryBot.build(:host, user: '')
-      expect(host.valid?).to be false
-      expect(host.errors).to eq ['user is empty']
-    end
-
-    it 'should have a host' do
-      host = FactoryBot.build(:host, host: '')
-      expect(host.valid?).to be false
-      expect(host.errors).to eq ['host is empty']
-    end
-
-    it 'should have a port' do
-      host = FactoryBot.build(:host, port: '')
-      expect(host.valid?).to be false
-      expect(host.errors).to eq ['port is empty']
+  describe '#to_hash' do
+    it 'should return a hash of attributes' do
+      expect(host.to_hash).to eq({
+        name:    'foo',
+        user:    'root',
+        host:    'host.example.net',
+        port:    22,
+        tunnels: [],
+      })
     end
   end
 
@@ -49,24 +34,6 @@ RSpec.describe SSHTunnel::UI::Models::Host do
       it 'should return false' do
         expect(host.started?).to be false
       end
-    end
-  end
-
-  describe '#to_s' do
-    it 'should return host name' do
-      expect(host.to_s).to eq host.name
-    end
-  end
-
-  describe '#to_hash' do
-    it 'should return a hash of attributes' do
-      expect(host.to_hash).to eq({
-        name:    'foo',
-        user:    'root',
-        host:    'host.example.net',
-        port:    '22',
-        tunnels: [],
-      })
     end
   end
 
@@ -107,4 +74,22 @@ RSpec.describe SSHTunnel::UI::Models::Host do
     end
   end
 
+  describe '#add_tunnel' do
+    it 'should add tunnel to host' do
+      expect(host.tunnels).to eq []
+      tunnel = FactoryBot.build(:tunnel, parent: host)
+      host.add_tunnel(tunnel)
+      expect(host.tunnels).to eq [tunnel]
+    end
+  end
+
+  describe '#remove_tunnel' do
+    it 'should remove tunnel from host' do
+      host = FactoryBot.build(:host_with_tunnels)
+      expect(host.tunnels.size).to eq 1
+      tunnel = host.tunnels.first
+      host.remove_tunnel(tunnel)
+      expect(host.tunnels).to eq []
+    end
+  end
 end

@@ -32,28 +32,10 @@ module SSHTunnel
         private
 
 
-          # rubocop:disable Metrics/MethodLength, Layout/CommentIndentation
-          def bind_submit_button
-            button_submit.label = t('button.submit')
-            button_submit.signal_connect :clicked do
-              @host.name = input_name.text
-              @host.user = input_user.text
-              @host.host = input_host.text
-              @host.port = input_port.text
-
-              if @host.valid?
-                @application.config.add_host(@host)
-                @application.config.save!
-                close
-                @window.reload_hosts_treeview
-              else
-                # TODO: find a way to render errors
-                puts @host.errors
-                @host.errors.clear
-              end
-            end
+          def save_and_reload_view
+            @application.config.add_host(@host)
+            super
           end
-          # rubocop:enable Metrics/MethodLength, Layout/CommentIndentation
 
       end
     end

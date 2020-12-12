@@ -25,6 +25,7 @@ require 'i18n/backend/fallbacks'
 
 require 'subprocess'
 
+require 'active_model'
 require 'active_support/concern'
 require 'active_support/core_ext/hash'
 require 'active_support/core_ext/string'

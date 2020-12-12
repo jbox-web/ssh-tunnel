@@ -12,7 +12,7 @@ module SSHTunnel
 
         def self.included(base)
           base.extend(ClassMethods)
-          base.extend(SSHTunnel::UI::Helpers::Common::FormHelper)
+          base.extend(SSHTunnel::UI::Helpers::Common::FormHelper::ClassMethods)
         end
 
 

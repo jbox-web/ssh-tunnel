@@ -36,34 +36,6 @@ module SSHTunnel
           input_remote_port.text = @tunnel.remote_port
         end
 
-
-        private
-
-
-          # rubocop:disable Metrics/MethodLength, Layout/CommentIndentation
-          def bind_submit_button
-            button_submit.label = t('button.submit')
-            button_submit.signal_connect :clicked do
-              @tunnel.name        = input_name.text
-              @tunnel.type        = input_type.active_id
-              @tunnel.local_host  = input_local_host.text
-              @tunnel.local_port  = input_local_port.text
-              @tunnel.remote_host = input_remote_host.text
-              @tunnel.remote_port = input_remote_port.text
-
-              if @tunnel.valid?
-                @application.config.save!
-                close
-                @window.reload_tunnels_treeview(@host)
-              else
-                # TODO: find a way to render errors
-                puts @tunnel.errors
-                @host.errors.clear
-              end
-            end
-          end
-          # rubocop:enable Metrics/MethodLength, Layout/CommentIndentation
-
       end
     end
   end

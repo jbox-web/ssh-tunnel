@@ -5,13 +5,12 @@ module SSHTunnel
     module Models
       class Tunnel
 
-        attr_accessor :name, :type, :local_host, :local_port, :remote_host, :remote_port
-        attr_reader   :parent, :errors
+        attr_accessor :name, :parent, :type, :local_host, :local_port, :remote_host, :remote_port
 
 
         def initialize(opts = {})
           @name        = opts.fetch(:name, '')
-          @parent      = opts.fetch(:parent)
+          @parent      = opts[:parent]
           @type        = opts[:type]
           @local_host  = opts[:local_host]
           @local_port  = opts[:local_port]
@@ -19,7 +18,6 @@ module SSHTunnel
           @remote_port = opts[:remote_port]
           @process     = nil
           @started     = false
-          @errors      = []
         end
 
 
@@ -66,18 +64,6 @@ module SSHTunnel
         end
 
 
-        def valid?
-          validate_presence_of(:name)
-          validate_presence_of(:type)
-          validate_presence_of(:local_host)
-          validate_presence_of(:local_port)
-          validate_presence_of(:remote_host)
-          validate_presence_of(:remote_port)
-
-          errors.empty?
-        end
-
-
         def command
           [
             '/usr/bin/ssh',
@@ -91,17 +77,6 @@ module SSHTunnel
             parent.host
           ]
         end
-
-
-        private
-
-
-          def validate_presence_of(field)
-            return true if send(field).present?
-
-            @errors << "#{field} is empty"
-            false
-          end
 
       end
     end

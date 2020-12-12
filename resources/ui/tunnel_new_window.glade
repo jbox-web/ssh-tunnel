@@ -28,8 +28,10 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="margin-left">10</property>
-                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">10</property>
+                <property name="margin-bottom">5</property>
                 <property name="label" translatable="yes">Name</property>
               </object>
               <packing>
@@ -41,7 +43,7 @@
               <object class="GtkEntry" id="input_name">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="margin-right">10</property>
+                <property name="margin-end">10</property>
                 <property name="margin-top">10</property>
                 <property name="margin-bottom">5</property>
                 <property name="hexpand">True</property>
@@ -56,8 +58,10 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="margin-left">10</property>
-                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
                 <property name="label" translatable="yes">Local Host</property>
               </object>
               <packing>
@@ -70,8 +74,10 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="margin-left">10</property>
-                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
                 <property name="label" translatable="yes">Local Port</property>
               </object>
               <packing>
@@ -84,8 +90,10 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="margin-left">10</property>
-                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
                 <property name="label" translatable="yes">Remote Host</property>
               </object>
               <packing>
@@ -98,8 +106,10 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="margin-left">10</property>
-                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">10</property>
                 <property name="label" translatable="yes">Remote Port</property>
               </object>
               <packing>
@@ -111,7 +121,7 @@
               <object class="GtkEntry" id="input_local_host">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="margin-right">10</property>
+                <property name="margin-end">10</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">5</property>
                 <property name="hexpand">True</property>
@@ -125,7 +135,7 @@
               <object class="GtkEntry" id="input_local_port">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="margin-right">10</property>
+                <property name="margin-end">10</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">5</property>
                 <property name="hexpand">True</property>
@@ -139,7 +149,7 @@
               <object class="GtkEntry" id="input_remote_host">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="margin-right">10</property>
+                <property name="margin-end">10</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">5</property>
                 <property name="hexpand">True</property>
@@ -153,7 +163,7 @@
               <object class="GtkEntry" id="input_remote_port">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="margin-right">10</property>
+                <property name="margin-end">10</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">10</property>
                 <property name="hexpand">True</property>
@@ -168,8 +178,10 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="margin-left">10</property>
-                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
                 <property name="label" translatable="yes">Type</property>
               </object>
               <packing>
@@ -181,7 +193,7 @@
               <object class="GtkComboBoxText" id="input_type">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-right">10</property>
+                <property name="margin-end">10</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">5</property>
               </object>

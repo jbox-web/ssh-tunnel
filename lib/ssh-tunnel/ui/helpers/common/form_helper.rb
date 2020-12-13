@@ -111,7 +111,7 @@ module SSHTunnel
 
 
             def set_input_labels(scope:)
-              form_fields.each do |field_name, method|
+              form_fields.each do |field_name, _method|
                 label  = "label_#{field_name}"
                 field  = __send__(label)
                 value  = t("form.#{scope}.#{field_name}")

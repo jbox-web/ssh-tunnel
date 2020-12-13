@@ -84,7 +84,7 @@ module SSHTunnel
 
 
       def set_locales!
-        I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+        I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
         I18n.load_path << Dir[SSHTunnel.locales_path]
 
         I18n.enforce_available_locales = false

@@ -11,7 +11,7 @@ module SSHTunnel
         attribute :port, required: true
         attribute :identity_file
 
-        validates_inclusion_of :port, in: 0..65535
+        validates_inclusion_of :port, in: 0..65_535
 
         # Callbacks
         before_validation :cast_port_to_int

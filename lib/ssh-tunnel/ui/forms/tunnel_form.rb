@@ -12,8 +12,8 @@ module SSHTunnel
         attribute :remote_host, required: true
         attribute :remote_port, required: true
 
-        validates_inclusion_of :local_port,  in: 0..65535
-        validates_inclusion_of :remote_port, in: 0..65535
+        validates_inclusion_of :local_port,  in: 0..65_535
+        validates_inclusion_of :remote_port, in: 0..65_535
 
         # Callbacks
         before_validation :cast_port_to_int

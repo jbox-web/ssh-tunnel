@@ -17,32 +17,21 @@ module SSHTunnel
         def load!
           @data  = load_yaml_file(file)
           @hosts = load_hosts
-          @dirty = false
-        end
-
-
-        def reload!
-          @data  = nil
-          @hosts = nil
-          load!
         end
 
 
         def add_host(host)
           @hosts << host
-          @dirty = true
         end
 
 
         def remove_host(host)
           @hosts.delete(host)
-          @dirty = true
         end
 
 
         def save!
           write_yaml_file(file, to_hash)
-          reload!
         end
 
 

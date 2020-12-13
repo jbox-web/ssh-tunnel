@@ -3,7 +3,7 @@
 # Require Gtk3 first. If it fails nothing works.
 begin
   require 'gtk3'
-rescue GObjectIntrospection::RepositoryError::TypelibNotFound => e
+rescue GObjectIntrospection::RepositoryError::TypelibNotFound => _e
   puts GObjectIntrospection::Repository.search_path
   puts %x(ls -hal /usr/lib/x86_64-linux-gnu/girepository-1.0)
   puts %x(ls -hal /usr/lib/girepository-1.0)

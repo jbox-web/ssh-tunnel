@@ -152,6 +152,7 @@ module SSHTunnel
           end
 
 
+          # rubocop:disable Style/SoleNestedConditional
           def hosts_treeview_bind_right_click(treeview)
             treeview.signal_connect :button_press_event do |widget, event|
               if event.is_a?(Gdk::EventButton) && event.button == 3
@@ -162,6 +163,7 @@ module SSHTunnel
               end
             end
           end
+          # rubocop:enable Style/SoleNestedConditional
 
 
           def hosts_treeview_add_columns(treeview)

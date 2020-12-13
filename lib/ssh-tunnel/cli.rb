@@ -54,9 +54,7 @@ module SSHTunnel
 
       def validate!
         if @opts[:config_file]
-          unless File.exist?(@opts[:config_file])
-            raise ArgumentError, "No such file #{@opts[:config_file]}"
-          end
+          raise ArgumentError, "No such file #{@opts[:config_file]}" unless File.exist?(@opts[:config_file])
         else
           @opts[:config_file] = Pathname.new(File.expand_path('~/.config/ssh-tunnel/config.yml'))
         end
@@ -87,7 +85,7 @@ module SSHTunnel
 
       def set_locales!
         I18n.load_path << Dir[SSHTunnel.locales_path]
-        I18n.available_locales = [:en, :fr]
+        I18n.available_locales = %i[en fr]
         I18n.default_locale = SSHTunnel.current_locale
       end
 

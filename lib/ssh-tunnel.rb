@@ -21,6 +21,8 @@ require 'optparse'
 require 'tmpdir'
 
 require 'i18n'
+require 'i18n/backend/fallbacks'
+
 require 'subprocess'
 
 require 'active_support/concern'

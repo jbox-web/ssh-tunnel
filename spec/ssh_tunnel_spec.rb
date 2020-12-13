@@ -28,4 +28,10 @@ RSpec.describe SSHTunnel do
     end
   end
 
+  describe '.locales_path' do
+    it 'should return locales_path path' do
+      expect(described_class.locales_path).to eq BASE_PATH.join('config', 'locales', '*.yml')
+    end
+  end
+
 end

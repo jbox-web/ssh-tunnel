@@ -15,7 +15,7 @@ module SSHTunnel
 
 
         def load!
-          @data  = load_yaml_file(file)
+          @data  = load_json_file(file)
           @hosts = load_hosts
         end
 
@@ -43,13 +43,13 @@ module SSHTunnel
         private
 
 
-          def load_yaml_file(file)
+          def load_json_file(file)
             return hash_with_indifferent_access unless File.exist?(file)
 
             content = File.read(file)
             return hash_with_indifferent_access if content.empty?
 
-            hash_with_indifferent_access YAML.safe_load(content)
+            hash_with_indifferent_access JSON.parse(content)
           end
 
 
@@ -62,7 +62,7 @@ module SSHTunnel
 
           def write_yaml_file(file, data)
             File.open(file, 'w+') do |f|
-              f.write YAML.dump(data)
+              f.write JSON.pretty_generate(data)
             end
           end
 

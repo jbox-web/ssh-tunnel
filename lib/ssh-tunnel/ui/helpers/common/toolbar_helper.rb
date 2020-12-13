@@ -49,7 +49,7 @@ module SSHTunnel
               button_add.tooltip_text = t('tooltip.host.add')
               button_add.signal_connect :clicked do
                 with_new_host_model do |object|
-                  window = SSHTunnel::UI::Windows::HostNewWindow.new(@application, self, object)
+                  window = SSHTunnel::UI::Windows::Hosts::NewWindow.new(@application, self, object)
                   window.present
                 end
               end
@@ -60,7 +60,7 @@ module SSHTunnel
               button_edit.tooltip_text = t('tooltip.host.edit')
               button_edit.signal_connect :clicked do
                 with_host_model do |object|
-                  window = SSHTunnel::UI::Windows::HostEditWindow.new(@application, self, object)
+                  window = SSHTunnel::UI::Windows::Hosts::EditWindow.new(@application, self, object)
                   window.present
                 end
               end
@@ -71,7 +71,7 @@ module SSHTunnel
               button_remove.tooltip_text = t('tooltip.host.remove')
               button_remove.signal_connect :clicked do
                 with_host_model do |object|
-                  window = SSHTunnel::UI::Windows::HostDeleteWindow.new(@application, self, object)
+                  window = SSHTunnel::UI::Windows::Hosts::DeleteWindow.new(@application, self, object)
                   window.present
                 end
               end

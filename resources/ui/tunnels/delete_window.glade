@@ -2,8 +2,7 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.18"/>
-  <template class="SSHTunnelUIWindowsHostDeleteWindow" parent="GtkWindow">
-    <property name="visible">True</property>
+  <template class="SSHTunnelUIWindowsTunnelsDeleteWindow" parent="GtkWindow">
     <property name="can-focus">False</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>

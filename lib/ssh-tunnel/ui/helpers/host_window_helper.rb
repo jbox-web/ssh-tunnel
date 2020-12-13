@@ -130,7 +130,7 @@ module SSHTunnel
             button_add.tooltip_text = t('tooltip.tunnel.add')
             button_add.signal_connect :clicked do
               with_new_tunnel_model do |object|
-                window = SSHTunnel::UI::Windows::TunnelNewWindow.new(application, self, object)
+                window = SSHTunnel::UI::Windows::Tunnels::NewWindow.new(application, self, object)
                 window.present
               end
             end
@@ -139,7 +139,7 @@ module SSHTunnel
             button_edit.tooltip_text = t('tooltip.tunnel.edit')
             button_edit.signal_connect :clicked do
               with_tunnel_model do |object|
-                window = SSHTunnel::UI::Windows::TunnelEditWindow.new(application, self, object)
+                window = SSHTunnel::UI::Windows::Tunnels::EditWindow.new(application, self, object)
                 window.present
               end
             end
@@ -148,7 +148,7 @@ module SSHTunnel
             button_remove.tooltip_text = t('tooltip.tunnel.remove')
             button_remove.signal_connect :clicked do
               with_tunnel_model do |object|
-                window = SSHTunnel::UI::Windows::TunnelDeleteWindow.new(application, self, object)
+                window = SSHTunnel::UI::Windows::Tunnels::DeleteWindow.new(application, self, object)
                 window.present
               end
             end

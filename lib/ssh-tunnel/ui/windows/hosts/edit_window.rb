@@ -32,7 +32,7 @@ module SSHTunnel
             input_name.text = @host.name
             input_user.text = @host.user
             input_host.text = @host.host
-            input_port.text = @host.port
+            input_port.text = @host.port.to_s
           end
 
         end

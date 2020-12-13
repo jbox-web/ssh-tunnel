@@ -82,7 +82,7 @@ module SSHTunnel
 
             tunnels.each do |tunnel|
               iter = model.append
-              iter.set_values([tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port, tunnel.remote_host, tunnel.remote_port])
+              iter.set_values([tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port.to_s, tunnel.remote_host, tunnel.remote_port.to_s])
             end
 
             model

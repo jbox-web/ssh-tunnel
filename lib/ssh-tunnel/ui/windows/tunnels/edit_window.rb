@@ -32,9 +32,9 @@ module SSHTunnel
             input_name.text        = @tunnel.name
             input_type.active_id   = @tunnel.type
             input_local_host.text  = @tunnel.local_host
-            input_local_port.text  = @tunnel.local_port
+            input_local_port.text  = @tunnel.local_port.to_s
             input_remote_host.text = @tunnel.remote_host
-            input_remote_port.text = @tunnel.remote_port
+            input_remote_port.text = @tunnel.remote_port.to_s
           end
 
         end

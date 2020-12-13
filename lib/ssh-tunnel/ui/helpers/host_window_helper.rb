@@ -14,12 +14,13 @@ module SSHTunnel
           base.extend(SSHTunnel::UI::Helpers::Common::FormHelper::ClassMethods)
         end
 
-        FORM_BUTTONS = %w[submit cancel add edit remove].freeze
+        FORM_BUTTONS = %w[submit cancel add edit remove reset_identity_file].freeze
         FORM_FIELDS  = {
-          name: :text,
-          user: :text,
-          host: :text,
-          port: :text,
+          name:          :text,
+          user:          :text,
+          host:          :text,
+          port:          :text,
+          identity_file: :filename,
         }.freeze
 
 
@@ -41,7 +42,8 @@ module SSHTunnel
           @host = host
 
           # Bind listeners
-          set_input_labels
+          set_input_labels(scope: :host)
+          bind_host_buttons
           bind_tunnels_buttons
 
           # Load tunnels treeview
@@ -82,7 +84,7 @@ module SSHTunnel
 
             tunnels.each do |tunnel|
               iter = model.append
-              iter.set_values([tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port.to_s, tunnel.remote_host, tunnel.remote_port.to_s])
+              iter.set_values([tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port, tunnel.remote_host, tunnel.remote_port])
             end
 
             model
@@ -116,11 +118,12 @@ module SSHTunnel
           end
 
 
-          def set_input_labels
-            label_name.text = t('form.host.name')
-            label_user.text = t('form.host.user')
-            label_host.text = t('form.host.host')
-            label_port.text = t('form.host.port')
+          def bind_host_buttons
+            button_reset_identity_file.label = t('button.reset')
+            button_reset_identity_file.tooltip_text = t('tooltip.host.reset_identity_file')
+            button_reset_identity_file.signal_connect :clicked do
+              input_identity_file.unselect_all
+            end
           end
 
 

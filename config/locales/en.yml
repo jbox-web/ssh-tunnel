@@ -32,6 +32,7 @@ en:
       user: User
       host: Host
       port: Port
+      identity_file: Identity File
     tunnel:
       name: Name
       type: Type
@@ -48,6 +49,7 @@ en:
     remove: Remove
     cancel: Cancel
     submit: Save
+    reset: Reset
 
   view:
     host:

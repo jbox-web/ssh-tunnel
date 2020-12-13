@@ -49,7 +49,7 @@ RSpec.describe SSHTunnel::UI::Forms::HostForm do
       expect(host.name).to eq 'foo'
       expect(host.user).to eq 'root'
       expect(host.host).to eq 'host.example.net'
-      expect(host.port).to eq 22
+      expect(host.port).to eq "22"
 
       form.submit(params)
       form.save
@@ -58,7 +58,7 @@ RSpec.describe SSHTunnel::UI::Forms::HostForm do
       expect(host.name).to eq 'My Host'
       expect(host.user).to eq 'root'
       expect(host.host).to eq 'foo.bar'
-      expect(host.port).to eq 22
+      expect(host.port).to eq "22"
     end
   end
 

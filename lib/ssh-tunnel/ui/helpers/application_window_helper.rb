@@ -75,7 +75,7 @@ module SSHTunnel
               iter[HOST_TITLE_COLUMN]         = host.name
               iter[HOST_USER_COLUMN]          = host.user
               iter[HOST_NAME_COLUMN]          = host.host
-              iter[HOST_PORT_COLUMN]          = host.port.to_s
+              iter[HOST_PORT_COLUMN]          = host.port
               iter[TUNNEL_NAME_COLUMN]        = ''
               iter[TUNNEL_TYPE_COLUMN]        = ''
               iter[TUNNEL_LOCAL_HOST_COLUMN]  = ''
@@ -92,9 +92,9 @@ module SSHTunnel
                 child_iter[TUNNEL_NAME_COLUMN]        = tunnel.name
                 child_iter[TUNNEL_TYPE_COLUMN]        = tunnel.type
                 child_iter[TUNNEL_LOCAL_HOST_COLUMN]  = tunnel.local_host
-                child_iter[TUNNEL_LOCAL_PORT_COLUMN]  = tunnel.local_port.to_s
+                child_iter[TUNNEL_LOCAL_PORT_COLUMN]  = tunnel.local_port
                 child_iter[TUNNEL_REMOTE_HOST_COLUMN] = tunnel.remote_host
-                child_iter[TUNNEL_REMOTE_PORT_COLUMN] = tunnel.remote_port.to_s
+                child_iter[TUNNEL_REMOTE_PORT_COLUMN] = tunnel.remote_port
               end
             end
 

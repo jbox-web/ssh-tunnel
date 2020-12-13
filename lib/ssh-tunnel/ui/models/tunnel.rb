@@ -27,15 +27,25 @@ module SSHTunnel
         end
 
 
+        def local_port
+          @local_port.to_s
+        end
+
+
+        def remote_port
+          @remote_port.to_s
+        end
+
+
         def to_hash
           {
             uuid:        uuid,
             name:        name,
             type:        type,
             local_host:  local_host,
-            local_port:  local_port,
+            local_port:  @local_port,
             remote_host: remote_host,
-            remote_port: remote_port,
+            remote_port: @remote_port,
           }
         end
 
@@ -67,7 +77,7 @@ module SSHTunnel
 
 
         def command
-          [
+          cmd = [
             '/usr/bin/ssh',
             '-N',
             '-t',
@@ -75,9 +85,12 @@ module SSHTunnel
             '-o', 'ExitOnForwardFailure=yes',
             "-l#{parent.user}",
             "-L#{local_host}:#{local_port}:#{remote_host}:#{remote_port}",
-            "-p#{parent.port}",
-            parent.host
+            "-p#{parent.port}"
           ]
+
+          cmd << "-i#{parent.identity_file}" if parent.identity_file.present?
+          cmd << parent.host
+          cmd
         end
 
       end

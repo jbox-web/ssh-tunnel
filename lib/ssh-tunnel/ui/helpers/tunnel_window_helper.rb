@@ -43,7 +43,7 @@ module SSHTunnel
           @host   = tunnel.parent
 
           # Bind listeners
-          set_input_labels
+          set_input_labels(scope: :tunnel)
 
           # Load tunnels combobox
           load_tunnels_combobox
@@ -51,16 +51,6 @@ module SSHTunnel
 
 
         private
-
-
-          def set_input_labels
-            label_name.text        = t('form.tunnel.name')
-            label_type.text        = t('form.tunnel.type')
-            label_local_host.text  = t('form.tunnel.local_host')
-            label_local_port.text  = t('form.tunnel.local_port')
-            label_remote_host.text = t('form.tunnel.remote_host')
-            label_remote_port.text = t('form.tunnel.remote_port')
-          end
 
 
           def load_tunnels_combobox

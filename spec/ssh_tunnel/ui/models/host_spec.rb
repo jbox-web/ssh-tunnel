@@ -18,6 +18,7 @@ RSpec.describe SSHTunnel::UI::Models::Host do
         user:    'root',
         host:    'host.example.net',
         port:    22,
+        identity_file: nil,
         tunnels: [],
       })
     end

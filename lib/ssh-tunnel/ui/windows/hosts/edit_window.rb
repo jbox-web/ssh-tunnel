@@ -29,10 +29,7 @@ module SSHTunnel
             set_title t('window.host.edit', host: @host)
 
             # Fills input fields
-            input_name.text = @host.name
-            input_user.text = @host.user
-            input_host.text = @host.host
-            input_port.text = @host.port.to_s
+            restore_form_values(@host)
           end
 
         end

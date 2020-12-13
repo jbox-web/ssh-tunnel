@@ -94,6 +94,31 @@ module SSHTunnel
               Gdk::RGBA.new(255, 255, 255)
             end
 
+
+            def restore_form_values(model)
+              form_fields.each do |field_name, method|
+                input  = "input_#{field_name}"
+                field  = __send__(input)
+                method = "#{method}="
+                value  = model.__send__(field_name)
+                if field_name == :identity_file && value.nil?
+                  field.unselect_all
+                else
+                  field.__send__(method, value)
+                end
+              end
+            end
+
+
+            def set_input_labels(scope:)
+              form_fields.each do |field_name, method|
+                label  = "label_#{field_name}"
+                field  = __send__(label)
+                value  = t("form.#{scope}.#{field_name}")
+                field.text = value
+              end
+            end
+
           end
         end
       end

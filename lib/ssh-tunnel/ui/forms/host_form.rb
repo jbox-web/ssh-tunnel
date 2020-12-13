@@ -9,6 +9,7 @@ module SSHTunnel
         attribute :user, required: true
         attribute :host, required: true
         attribute :port, required: true
+        attribute :identity_file
 
         validates_inclusion_of :port, in: 0..65535
 

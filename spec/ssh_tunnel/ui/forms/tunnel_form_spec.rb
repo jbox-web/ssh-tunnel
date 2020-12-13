@@ -53,9 +53,9 @@ RSpec.describe SSHTunnel::UI::Forms::TunnelForm do
       expect(tunnel.name).to eq 'mysql'
       expect(tunnel.type).to eq 'local'
       expect(tunnel.local_host).to eq '127.0.0.1'
-      expect(tunnel.local_port).to eq 10000
+      expect(tunnel.local_port).to eq "10000"
       expect(tunnel.remote_host).to eq '127.0.0.1'
-      expect(tunnel.remote_port).to eq 3306
+      expect(tunnel.remote_port).to eq "3306"
 
       form.submit(params)
       form.save
@@ -64,9 +64,9 @@ RSpec.describe SSHTunnel::UI::Forms::TunnelForm do
       expect(tunnel.name).to eq 'My Tunnel'
       expect(tunnel.type).to eq 'remote'
       expect(tunnel.local_host).to eq '127.0.0.1'
-      expect(tunnel.local_port).to eq 5000
+      expect(tunnel.local_port).to eq "5000"
       expect(tunnel.remote_host).to eq '127.0.0.1'
-      expect(tunnel.remote_port).to eq 6379
+      expect(tunnel.remote_port).to eq "6379"
     end
   end
 

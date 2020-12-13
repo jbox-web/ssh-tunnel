@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SSHTunnel::UI::Models::Host do
+RSpec.describe SSHTunnel::UI::Models::Host do
 
   let(:host) { FactoryBot.build(:host) }
 

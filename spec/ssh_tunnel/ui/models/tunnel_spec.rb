@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SSHTunnel::UI::Models::Tunnel do
+RSpec.describe SSHTunnel::UI::Models::Tunnel do
 
   let(:tunnel) { FactoryBot.build(:tunnel) }
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SSHTunnel do
+RSpec.describe SSHTunnel do
 
   BASE_PATH = Pathname.new File.expand_path('..', __dir__)
 

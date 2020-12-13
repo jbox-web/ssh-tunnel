@@ -5,10 +5,11 @@ module SSHTunnel
     module Models
       class Tunnel
 
-        attr_accessor :name, :parent, :type, :local_host, :local_port, :remote_host, :remote_port
+        attr_accessor :uuid, :name, :parent, :type, :local_host, :local_port, :remote_host, :remote_port
 
 
         def initialize(opts = {})
+          @uuid        = opts.fetch(:uuid) { SecureRandom.uuid }
           @name        = opts.fetch(:name, '')
           @parent      = opts[:parent]
           @type        = opts[:type]
@@ -28,6 +29,7 @@ module SSHTunnel
 
         def to_hash
           {
+            uuid:        uuid,
             name:        name,
             type:        type,
             local_host:  local_host,

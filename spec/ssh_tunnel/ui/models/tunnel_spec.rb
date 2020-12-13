@@ -13,12 +13,13 @@ RSpec.describe SSHTunnel::UI::Models::Tunnel do
   describe '#to_hash' do
     it 'should return a hash of attributes' do
       expect(tunnel.to_hash).to eq({
-        local_host: '127.0.0.1',
-        local_port: 10000,
-        name: 'mysql',
+        uuid:        '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9',
+        name:        'mysql',
+        type:        'local',
+        local_host:  '127.0.0.1',
+        local_port:  10000,
         remote_host: '127.0.0.1',
         remote_port: 3306,
-        type: 'local',
       })
     end
   end

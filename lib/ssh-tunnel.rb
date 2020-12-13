@@ -19,6 +19,7 @@ require 'yaml'
 require 'singleton'
 require 'optparse'
 require 'tmpdir'
+require 'securerandom'
 
 require 'i18n'
 require 'i18n/backend/fallbacks'

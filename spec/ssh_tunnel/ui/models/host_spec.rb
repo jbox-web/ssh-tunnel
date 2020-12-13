@@ -13,6 +13,7 @@ RSpec.describe SSHTunnel::UI::Models::Host do
   describe '#to_hash' do
     it 'should return a hash of attributes' do
       expect(host.to_hash).to eq({
+        uuid:    '7be48819-97bf-49fc-98af-4f7f096e1977',
         name:    'foo',
         user:    'root',
         host:    'host.example.net',

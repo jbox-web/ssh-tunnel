@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :host, class: 'SSHTunnel::UI::Models::Host' do
 
+    uuid { '7be48819-97bf-49fc-98af-4f7f096e1977' }
     name { 'foo' }
     user { 'root' }
     host { 'host.example.net' }

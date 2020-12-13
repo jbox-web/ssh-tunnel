@@ -45,6 +45,7 @@ RSpec.describe SSHTunnel::UI::Forms::HostForm do
 
   describe '#save' do
     it 'should save value on model' do
+      expect(host.uuid).to eq '7be48819-97bf-49fc-98af-4f7f096e1977'
       expect(host.name).to eq 'foo'
       expect(host.user).to eq 'root'
       expect(host.host).to eq 'host.example.net'
@@ -53,6 +54,7 @@ RSpec.describe SSHTunnel::UI::Forms::HostForm do
       form.submit(params)
       form.save
 
+      expect(host.uuid).to eq '7be48819-97bf-49fc-98af-4f7f096e1977'
       expect(host.name).to eq 'My Host'
       expect(host.user).to eq 'root'
       expect(host.host).to eq 'foo.bar'

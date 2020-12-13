@@ -49,6 +49,7 @@ RSpec.describe SSHTunnel::UI::Forms::TunnelForm do
 
   describe '#save' do
     it 'should save value on model' do
+      expect(tunnel.uuid).to eq '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9'
       expect(tunnel.name).to eq 'mysql'
       expect(tunnel.type).to eq 'local'
       expect(tunnel.local_host).to eq '127.0.0.1'
@@ -59,6 +60,7 @@ RSpec.describe SSHTunnel::UI::Forms::TunnelForm do
       form.submit(params)
       form.save
 
+      expect(tunnel.uuid).to eq '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9'
       expect(tunnel.name).to eq 'My Tunnel'
       expect(tunnel.type).to eq 'remote'
       expect(tunnel.local_host).to eq '127.0.0.1'

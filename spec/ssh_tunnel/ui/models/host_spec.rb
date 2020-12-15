@@ -22,6 +22,25 @@ RSpec.describe SSHTunnel::UI::Models::Host do
         tunnels: [],
       })
     end
+
+    context 'with multiple tunnels' do
+      let(:host) { FactoryBot.build(:host_with_two_tunnels) }
+
+      it 'sorts tunnels by name' do
+        expect(host.to_hash).to eq({
+          uuid:    '7be48819-97bf-49fc-98af-4f7f096e1977',
+          name:    'foo',
+          user:    'root',
+          host:    'host.example.net',
+          port:    22,
+          identity_file: nil,
+          tunnels: [
+            { local_host: '127.0.0.1', local_port: 10000, name: 'aaa', remote_host: '127.0.0.1', remote_port: 3306, type: 'local', uuid: '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9' },
+            { local_host: '127.0.0.1', local_port: 10000, name: 'zzz', remote_host: '127.0.0.1', remote_port: 3306, type: 'local', uuid: '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9' },
+          ],
+        })
+      end
+    end
   end
 
   describe '#started?' do
@@ -87,7 +106,7 @@ RSpec.describe SSHTunnel::UI::Models::Host do
 
   describe '#remove_tunnel' do
     it 'should remove tunnel from host' do
-      host = FactoryBot.build(:host_with_tunnels)
+      host = FactoryBot.build(:host_with_one_tunnel)
       expect(host.tunnels.size).to eq 1
       tunnel = host.tunnels.first
       host.remove_tunnel(tunnel)

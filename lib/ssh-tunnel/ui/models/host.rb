@@ -38,7 +38,7 @@ module SSHTunnel
             host:          host,
             port:          @port,
             identity_file: identity_file,
-            tunnels:       tunnels.map(&:to_hash),
+            tunnels:       tunnels.sort_by(&:name).map(&:to_hash),
           }
         end
 

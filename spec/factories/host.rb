@@ -7,9 +7,15 @@ FactoryBot.define do
     host { 'host.example.net' }
     port { 22 }
 
-    factory :host_with_tunnels do
+    factory :host_with_one_tunnel do
       after(:build) do |object, _evaluator|
         object.tunnels = [build(:tunnel, parent: object)]
+      end
+    end
+
+    factory :host_with_two_tunnels do
+      after(:build) do |object, _evaluator|
+        object.tunnels = [build(:tunnel, name: 'zzz', parent: object), build(:tunnel, name: 'aaa', parent: object)]
       end
     end
   end

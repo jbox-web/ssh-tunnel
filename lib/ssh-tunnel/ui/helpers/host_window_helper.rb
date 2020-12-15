@@ -16,11 +16,21 @@ module SSHTunnel
 
         FORM_BUTTONS = %w[submit cancel add edit remove reset_identity_file].freeze
         FORM_FIELDS  = {
-          name:          :text,
-          user:          :text,
-          host:          :text,
-          port:          :text,
-          identity_file: :filename,
+          name: {
+            type: :text,
+          },
+          user: {
+            type: :text,
+          },
+          host: {
+            type: :text,
+          },
+          port: {
+            type: :text,
+          },
+          identity_file: {
+            type: :file,
+          },
         }.freeze
 
 

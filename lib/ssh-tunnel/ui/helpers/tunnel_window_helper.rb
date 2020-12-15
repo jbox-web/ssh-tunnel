@@ -16,12 +16,24 @@ module SSHTunnel
 
         FORM_BUTTONS = %i[submit cancel].freeze
         FORM_FIELDS  = {
-          name:        :text,
-          type:        :active_id,
-          local_host:  :text,
-          local_port:  :text,
-          remote_host: :text,
-          remote_port: :text,
+          name: {
+            type: :text,
+          },
+          type: {
+            type: :select,
+          },
+          local_host: {
+            type: :text,
+          },
+          local_port: {
+            type: :text,
+          },
+          remote_host: {
+            type: :text,
+          },
+          remote_port: {
+            type: :text,
+          },
         }.freeze
 
 

@@ -34,10 +34,12 @@ module SSHTunnel
 
             def params
               params = {}
-              form_fields.each do |field_name, method|
-                input = "input_#{field_name}"
-                field = __send__(input)
-                value = field.__send__(method)
+              form_fields.each do |field_name, opts|
+                # get input value
+                input  = "input_#{field_name}"
+                field  = __send__(input)
+                getter = getter_for(opts[:type])
+                value = field.__send__(getter)
                 params[field_name] = value
               end
               params
@@ -96,17 +98,53 @@ module SSHTunnel
 
 
             def restore_form_values(model)
-              form_fields.each do |field_name, method|
-                input  = "input_#{field_name}"
-                field  = __send__(input)
-                method = "#{method}="
-                value  = model.__send__(field_name)
-                if field_name == :identity_file && value.nil?
-                  field.unselect_all
-                else
-                  field.__send__(method, value)
-                end
+              form_fields.each do |field_name, opts|
+                restore_form_value(model, field_name, opts)
               end
+            end
+
+
+            def restore_form_value(model, field_name, opts)
+              # get model value
+              value = model.__send__(field_name)
+
+              # set input form
+              input  = "input_#{field_name}"
+              field  = __send__(input)
+              setter = setter_for(opts[:type])
+
+              if opts[:type] == :file && value.nil?
+                field.unselect_all
+              else
+                field.__send__(setter, value)
+              end
+            end
+
+
+            INPUT_TYPES = {
+              text: {
+                getter: :text,
+                setter: :text=,
+              },
+              select: {
+                getter: :active_id,
+                setter: :active_id=,
+              },
+              file: {
+                getter: :filename,
+                setter: :filename=,
+              },
+            }.freeze
+            private_constant :INPUT_TYPES
+
+
+            def setter_for(input_type)
+              INPUT_TYPES.dig(input_type, :setter)
+            end
+
+
+            def getter_for(input_type)
+              INPUT_TYPES.dig(input_type, :getter)
             end
 
 

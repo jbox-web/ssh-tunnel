@@ -88,3 +88,6 @@ module SSHTunnel
   end
 
 end
+
+# Eager load application
+loader.eager_load

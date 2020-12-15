@@ -82,20 +82,21 @@ module SSHTunnel
         private
 
 
-          TUNNEL_NAME_COLUMN        = 0
-          TUNNEL_TYPE_COLUMN        = 1
-          TUNNEL_LOCAL_HOST_COLUMN  = 2
-          TUNNEL_LOCAL_PORT_COLUMN  = 3
-          TUNNEL_REMOTE_HOST_COLUMN = 4
-          TUNNEL_REMOTE_PORT_COLUMN = 5
+          TUNNEL_UUID_COLUMN        = 0
+          TUNNEL_NAME_COLUMN        = 1
+          TUNNEL_TYPE_COLUMN        = 2
+          TUNNEL_LOCAL_HOST_COLUMN  = 3
+          TUNNEL_LOCAL_PORT_COLUMN  = 4
+          TUNNEL_REMOTE_HOST_COLUMN = 5
+          TUNNEL_REMOTE_PORT_COLUMN = 6
 
 
           def create_tunnels_treeview_model(tunnels)
-            model = Gtk::ListStore.new(String, String, String, String, String, String)
+            model = Gtk::ListStore.new(String, String, String, String, String, String, String)
 
             tunnels.each do |tunnel|
               iter = model.append
-              iter.set_values([tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port, tunnel.remote_host, tunnel.remote_port])
+              iter.set_values([tunnel.uuid, tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port, tunnel.remote_host, tunnel.remote_port])
             end
 
             model
@@ -113,6 +114,7 @@ module SSHTunnel
 
 
           def tunnels_treeview_add_columns(treeview)
+            add_text_column treeview, t('view.host.tunnel_uuid'), text: TUNNEL_UUID_COLUMN, visible: false
             add_text_column treeview, t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN
             add_text_column treeview, t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN
             add_text_column treeview, t('view.host.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN
@@ -171,8 +173,8 @@ module SSHTunnel
           def find_tunnel_model
             return nil if @tunnels_treeview.selection.selected.blank?
 
-            index = @tunnels_treeview.selection.selected.path.to_s.to_i
-            all_tunnels[index]
+            uuid = @tunnels_treeview.selection.selected.get_value(TUNNEL_UUID_COLUMN)
+            all_tunnels.find { |t| t.uuid == uuid }
           end
 
 

@@ -41,7 +41,7 @@ RSpec.describe SSHTunnel::UI::Models::Host do
 
   describe '#start_tunnels!' do
     it 'should start tunnels' do
-      expect(host.tunnels).to receive(:map)
+      expect(host.tunnels).to receive(:each)
       host.start_tunnels!
       expect(host.started?).to be true
     end
@@ -49,7 +49,7 @@ RSpec.describe SSHTunnel::UI::Models::Host do
 
   describe '#stop_tunnels!' do
     it 'should stop tunnels' do
-      expect(host.tunnels).to receive(:map)
+      expect(host.tunnels).to receive(:each)
       host.stop_tunnels!
       expect(host.started?).to be false
     end

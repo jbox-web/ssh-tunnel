@@ -59,13 +59,13 @@ module SSHTunnel
 
 
         def start_tunnels!
-          tunnels.map(&:start!)
+          tunnels.each(&:start!)
           @started = true
         end
 
 
         def stop_tunnels!
-          tunnels.map(&:stop!)
+          tunnels.each(&:stop!)
           @started = false
         end
 

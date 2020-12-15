@@ -34,4 +34,12 @@ RSpec.describe SSHTunnel do
     end
   end
 
+  describe '.current_locale' do
+    it 'should return Gtk current_locale' do
+      expect {
+        described_class.current_locale
+      }.to_not raise_error
+    end
+  end
+
 end

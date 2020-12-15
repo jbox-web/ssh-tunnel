@@ -32,4 +32,6 @@ jobs:
 
       - name: RSpec
         run: |
+          Xvfb :99 &
+          export DISPLAY=:99
           bundle exec rake

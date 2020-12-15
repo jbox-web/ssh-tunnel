@@ -54,6 +54,7 @@ fr:
   view:
     host:
       state: Etat
+      uuid: UUID
       name: Nom
       user: Utilisateur
       host: Hôte

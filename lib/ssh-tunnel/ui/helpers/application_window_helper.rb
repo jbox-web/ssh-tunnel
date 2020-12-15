@@ -52,29 +52,31 @@ module SSHTunnel
 
 
           HOST_STATE_COLUMN         = 0
-          HOST_TITLE_COLUMN         = 1
+          HOST_UUID_COLUMN          = 1
           HOST_NAME_COLUMN          = 2
-          HOST_USER_COLUMN          = 3
-          HOST_PORT_COLUMN          = 4
-          TUNNEL_NAME_COLUMN        = 5
-          TUNNEL_TYPE_COLUMN        = 6
-          TUNNEL_LOCAL_HOST_COLUMN  = 7
-          TUNNEL_LOCAL_PORT_COLUMN  = 8
-          TUNNEL_REMOTE_HOST_COLUMN = 9
-          TUNNEL_REMOTE_PORT_COLUMN = 10
+          HOST_HOST_COLUMN          = 3
+          HOST_USER_COLUMN          = 4
+          HOST_PORT_COLUMN          = 5
+          TUNNEL_NAME_COLUMN        = 6
+          TUNNEL_TYPE_COLUMN        = 7
+          TUNNEL_LOCAL_HOST_COLUMN  = 8
+          TUNNEL_LOCAL_PORT_COLUMN  = 9
+          TUNNEL_REMOTE_HOST_COLUMN = 10
+          TUNNEL_REMOTE_PORT_COLUMN = 11
 
 
           # rubocop:disable Metrics/MethodLength
           def create_hosts_treeview_model(hosts)
-            model = Gtk::TreeStore.new(String, String, String, String, String, String, String, String, String, String, String)
+            model = Gtk::TreeStore.new(String, String, String, String, String, String, String, String, String, String, String, String)
 
             hosts.each do |host|
               iter = model.append(nil)
 
               iter[HOST_STATE_COLUMN]         = host.started? ? 'gtk-yes' : 'gtk-no'
-              iter[HOST_TITLE_COLUMN]         = host.name
+              iter[HOST_UUID_COLUMN]          = host.uuid
+              iter[HOST_NAME_COLUMN]          = host.name
               iter[HOST_USER_COLUMN]          = host.user
-              iter[HOST_NAME_COLUMN]          = host.host
+              iter[HOST_HOST_COLUMN]          = host.host
               iter[HOST_PORT_COLUMN]          = host.port
               iter[TUNNEL_NAME_COLUMN]        = ''
               iter[TUNNEL_TYPE_COLUMN]        = ''
@@ -168,9 +170,10 @@ module SSHTunnel
 
           def hosts_treeview_add_columns(treeview)
             add_image_column(treeview, t('view.host.state'),       'icon-name': HOST_STATE_COLUMN)
-            add_text_column(treeview,  t('view.host.name'),        text: HOST_TITLE_COLUMN)
+            add_text_column(treeview,  t('view.host.uuid'),        text: HOST_UUID_COLUMN, visible: false)
+            add_text_column(treeview,  t('view.host.name'),        text: HOST_NAME_COLUMN)
             add_text_column(treeview,  t('view.host.user'),        text: HOST_USER_COLUMN)
-            add_text_column(treeview,  t('view.host.host'),        text: HOST_NAME_COLUMN)
+            add_text_column(treeview,  t('view.host.host'),        text: HOST_HOST_COLUMN)
             add_text_column(treeview,  t('view.host.port'),        text: HOST_PORT_COLUMN)
             add_text_column(treeview,  t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN)
             add_text_column(treeview,  t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN)
@@ -194,10 +197,12 @@ module SSHTunnel
 
 
           def add_column(renderer, treeview, label, attributes)
+            visible = attributes.delete(:visible) { true }
             col_offset = treeview.insert_column(-1, label, renderer, attributes)
 
             column = treeview.get_column(col_offset - 1)
             column.clickable = true
+            column.visible = visible
             column.sort_column_id = attributes[:text] if attributes[:text]
           end
 
@@ -210,8 +215,8 @@ module SSHTunnel
           def find_host_model
             return nil if @hosts_treeview.selection.selected.blank?
 
-            index = @hosts_treeview.selection.selected.path.to_s.to_i
-            all_hosts[index]
+            uuid = @hosts_treeview.selection.selected.get_value(HOST_UUID_COLUMN)
+            all_hosts.find { |h| h.uuid == uuid }
           end
 
 

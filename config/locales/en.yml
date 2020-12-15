@@ -54,6 +54,7 @@ en:
   view:
     host:
       state: State
+      uuid: UUID
       name: Name
       user: User
       host: Host

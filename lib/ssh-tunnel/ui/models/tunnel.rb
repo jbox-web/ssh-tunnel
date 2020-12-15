@@ -73,6 +73,8 @@ module SSHTunnel
         def start!
           return if started?
 
+          SSHTunnel.logger.info "Starting tunnel : #{self}"
+
           @process = Subprocess.popen(command, stdout: '/dev/null', stderr: '/dev/null', stdin: Subprocess::PIPE)
           @started = true
         end
@@ -83,6 +85,8 @@ module SSHTunnel
         def stop!
           return unless started?
           return if @process.nil?
+
+          SSHTunnel.logger.info "Stopping tunnel : #{self}"
 
           @process.terminate
           @process.wait

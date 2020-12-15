@@ -20,6 +20,7 @@ require 'singleton'
 require 'optparse'
 require 'tmpdir'
 require 'securerandom'
+require 'logger'
 
 require 'i18n'
 require 'i18n/backend/fallbacks'
@@ -79,6 +80,11 @@ module SSHTunnel
 
   def self.config
     @config
+  end
+
+
+  def self.logger
+    @logger ||= SSHTunnel::Logger.new($stdout, level: Logger::INFO)
   end
 
 end

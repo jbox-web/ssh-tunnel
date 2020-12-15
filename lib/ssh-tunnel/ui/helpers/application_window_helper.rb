@@ -169,18 +169,18 @@ module SSHTunnel
 
 
           def hosts_treeview_add_columns(treeview)
-            add_image_column(treeview, t('view.host.state'),       'icon-name': HOST_STATE_COLUMN)
-            add_text_column(treeview,  t('view.host.uuid'),        text: HOST_UUID_COLUMN, visible: false)
-            add_text_column(treeview,  t('view.host.name'),        text: HOST_NAME_COLUMN)
-            add_text_column(treeview,  t('view.host.user'),        text: HOST_USER_COLUMN)
-            add_text_column(treeview,  t('view.host.host'),        text: HOST_HOST_COLUMN)
-            add_text_column(treeview,  t('view.host.port'),        text: HOST_PORT_COLUMN)
-            add_text_column(treeview,  t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN)
-            add_text_column(treeview,  t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN)
-            add_text_column(treeview,  t('view.host.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN)
-            add_text_column(treeview,  t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN)
-            add_text_column(treeview,  t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN)
-            add_text_column(treeview,  t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN)
+            add_image_column treeview,  t('view.host.state'),       'icon-name': HOST_STATE_COLUMN
+            add_text_column  treeview,  t('view.host.uuid'),        text: HOST_UUID_COLUMN, visible: false
+            add_text_column  treeview,  t('view.host.name'),        text: HOST_NAME_COLUMN
+            add_text_column  treeview,  t('view.host.user'),        text: HOST_USER_COLUMN
+            add_text_column  treeview,  t('view.host.host'),        text: HOST_HOST_COLUMN
+            add_text_column  treeview,  t('view.host.port'),        text: HOST_PORT_COLUMN
+            add_text_column  treeview,  t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN
+            add_text_column  treeview,  t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN
+            add_text_column  treeview,  t('view.host.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN
+            add_text_column  treeview,  t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
+            add_text_column  treeview,  t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
+            add_text_column  treeview,  t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
           end
 
 

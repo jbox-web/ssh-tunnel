@@ -5,7 +5,7 @@ module SSHTunnel
     module Models
       class Tunnel
 
-        attr_accessor :uuid, :name, :parent, :type, :local_host, :local_port, :remote_host, :remote_port
+        attr_accessor :uuid, :name, :parent, :type, :local_host, :local_port, :remote_host, :remote_port, :auto_start
 
 
         def initialize(opts = {})
@@ -17,6 +17,7 @@ module SSHTunnel
           @local_port  = opts[:local_port]
           @remote_host = opts[:remote_host]
           @remote_port = opts[:remote_port]
+          @auto_start  = opts[:auto_start]
           @process     = nil
           @started     = false
         end
@@ -46,7 +47,21 @@ module SSHTunnel
             local_port:  @local_port,
             remote_host: remote_host,
             remote_port: @remote_port,
+            auto_start:  auto_start,
           }
+        end
+
+
+        def auto_start?
+          @auto_start == true
+        end
+
+
+        def auto_start!
+          return false unless auto_start?
+
+          start!
+          true
         end
 
 

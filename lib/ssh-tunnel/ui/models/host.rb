@@ -53,6 +53,12 @@ module SSHTunnel
         end
 
 
+        def auto_start!
+          started = tunnels.map(&:auto_start!)
+          @started = started.any?
+        end
+
+
         def started?
           @started
         end

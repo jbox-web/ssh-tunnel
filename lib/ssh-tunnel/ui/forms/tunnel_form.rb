@@ -11,6 +11,7 @@ module SSHTunnel
         attribute :local_port,  required: true
         attribute :remote_host, required: true
         attribute :remote_port, required: true
+        attribute :auto_start
 
         validates_inclusion_of :local_port,  in: 0..65_535
         validates_inclusion_of :remote_port, in: 0..65_535

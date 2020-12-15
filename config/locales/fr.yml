@@ -42,6 +42,7 @@ fr:
       local_port: Port local
       remote_host: Hôte distant
       remote_port: Port distant
+      auto_start: Démarrage auto
 
   button:
     add: Ajouter
@@ -67,3 +68,4 @@ fr:
       local_port: Port local
       remote_host: Hôte distant
       remote_port: Port distant
+      auto_start: Démarrage auto

@@ -42,6 +42,7 @@ en:
       local_port: Local Port
       remote_host: Remote Host
       remote_port: Remote Port
+      auto_start: Auto Start
 
   button:
     add: Add
@@ -67,3 +68,4 @@ en:
       local_port: Local Port
       remote_host: Remote Host
       remote_port: Remote Port
+      auto_start: Auto Start

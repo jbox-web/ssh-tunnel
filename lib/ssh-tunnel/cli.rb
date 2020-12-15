@@ -95,6 +95,7 @@ module SSHTunnel
 
 
       def boot_application!
+        SSHTunnel.config.hosts.each(&:auto_start!)
         app = SSHTunnel::UI::Application.new
         app.run
       end

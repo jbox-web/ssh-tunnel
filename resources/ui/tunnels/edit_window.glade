@@ -19,7 +19,7 @@
         <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <!-- n-columns=3 n-rows=6 -->
+          <!-- n-columns=3 n-rows=7 -->
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
@@ -109,7 +109,7 @@
                 <property name="margin-start">10</property>
                 <property name="margin-end">5</property>
                 <property name="margin-top">5</property>
-                <property name="margin-bottom">10</property>
+                <property name="margin-bottom">5</property>
                 <property name="label" translatable="yes">Remote Port</property>
               </object>
               <packing>
@@ -165,7 +165,7 @@
                 <property name="can-focus">True</property>
                 <property name="margin-end">10</property>
                 <property name="margin-top">5</property>
-                <property name="margin-bottom">10</property>
+                <property name="margin-bottom">5</property>
                 <property name="hexpand">True</property>
               </object>
               <packing>
@@ -201,6 +201,41 @@
                 <property name="left-attach">1</property>
                 <property name="top-attach">1</property>
               </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_auto_start">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin-left">10</property>
+                <property name="margin-right">5</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">10</property>
+                <property name="label" translatable="yes">Auto Start</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="input_auto_start">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">False</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">10</property>
+                <property name="draw-indicator">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
             </child>
             <child>
               <placeholder/>

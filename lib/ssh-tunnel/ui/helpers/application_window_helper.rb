@@ -64,11 +64,12 @@ module SSHTunnel
           TUNNEL_LOCAL_PORT_COLUMN  = 9
           TUNNEL_REMOTE_HOST_COLUMN = 10
           TUNNEL_REMOTE_PORT_COLUMN = 11
+          TUNNEL_AUTO_START_COLUMN  = 12
 
 
           # rubocop:disable Metrics/MethodLength
           def create_hosts_treeview_model(hosts)
-            model = Gtk::TreeStore.new(String, String, String, String, String, String, String, String, String, String, String, String)
+            model = Gtk::TreeStore.new(String, String, String, String, String, String, String, String, String, String, String, String, String)
 
             hosts.each do |host|
               iter = model.append(nil)
@@ -85,6 +86,7 @@ module SSHTunnel
               iter[TUNNEL_LOCAL_PORT_COLUMN]  = ''
               iter[TUNNEL_REMOTE_HOST_COLUMN] = ''
               iter[TUNNEL_REMOTE_PORT_COLUMN] = ''
+              iter[TUNNEL_AUTO_START_COLUMN]  = ''
 
               tunnels = host.tunnels
 
@@ -98,6 +100,7 @@ module SSHTunnel
                 child_iter[TUNNEL_LOCAL_PORT_COLUMN]  = tunnel.local_port
                 child_iter[TUNNEL_REMOTE_HOST_COLUMN] = tunnel.remote_host
                 child_iter[TUNNEL_REMOTE_PORT_COLUMN] = tunnel.remote_port
+                child_iter[TUNNEL_AUTO_START_COLUMN]  = tunnel.auto_start?.to_s
               end
             end
 
@@ -182,6 +185,7 @@ module SSHTunnel
             add_text_column  treeview,  t('view.tunnel.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
             add_text_column  treeview,  t('view.tunnel.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
             add_text_column  treeview,  t('view.tunnel.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
+            add_text_column  treeview,  t('view.tunnel.auto_start'),  text: TUNNEL_AUTO_START_COLUMN
           end
 
 

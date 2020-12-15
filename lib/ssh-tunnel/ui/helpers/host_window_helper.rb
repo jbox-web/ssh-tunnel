@@ -89,14 +89,15 @@ module SSHTunnel
           TUNNEL_LOCAL_PORT_COLUMN  = 4
           TUNNEL_REMOTE_HOST_COLUMN = 5
           TUNNEL_REMOTE_PORT_COLUMN = 6
+          TUNNEL_AUTO_START_COLUMN  = 7
 
 
           def create_tunnels_treeview_model(tunnels)
-            model = Gtk::ListStore.new(String, String, String, String, String, String, String)
+            model = Gtk::ListStore.new(String, String, String, String, String, String, String, String)
 
             tunnels.each do |tunnel|
               iter = model.append
-              iter.set_values([tunnel.uuid, tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port, tunnel.remote_host, tunnel.remote_port])
+              iter.set_values([tunnel.uuid, tunnel.name, tunnel.type, tunnel.local_host, tunnel.local_port, tunnel.remote_host, tunnel.remote_port, tunnel.auto_start?.to_s])
             end
 
             model
@@ -138,6 +139,7 @@ module SSHTunnel
             add_text_column treeview, t('view.tunnel.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
             add_text_column treeview, t('view.tunnel.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
             add_text_column treeview, t('view.tunnel.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
+            add_text_column treeview, t('view.tunnel.auto_start'),  text: TUNNEL_AUTO_START_COLUMN
           end
 
 

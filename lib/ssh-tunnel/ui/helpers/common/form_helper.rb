@@ -134,6 +134,10 @@ module SSHTunnel
                 getter: :filename,
                 setter: :filename=,
               },
+              checkbox: {
+                getter: :active?,
+                setter: :active=,
+              },
             }.freeze
             private_constant :INPUT_TYPES
 

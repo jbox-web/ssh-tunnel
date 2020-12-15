@@ -34,6 +34,9 @@ module SSHTunnel
           remote_port: {
             type: :text,
           },
+          auto_start: {
+            type: :checkbox,
+          },
         }.freeze
 
 

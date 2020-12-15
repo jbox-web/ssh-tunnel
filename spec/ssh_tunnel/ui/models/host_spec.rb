@@ -35,8 +35,8 @@ RSpec.describe SSHTunnel::UI::Models::Host do
           port:    22,
           identity_file: nil,
           tunnels: [
-            { local_host: '127.0.0.1', local_port: 10000, name: 'aaa', remote_host: '127.0.0.1', remote_port: 3306, type: 'local', uuid: '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9' },
-            { local_host: '127.0.0.1', local_port: 10000, name: 'zzz', remote_host: '127.0.0.1', remote_port: 3306, type: 'local', uuid: '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9' },
+            { local_host: '127.0.0.1', local_port: 10000, name: 'aaa', remote_host: '127.0.0.1', remote_port: 3306, type: 'local', uuid: '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9', auto_start: nil },
+            { local_host: '127.0.0.1', local_port: 10000, name: 'zzz', remote_host: '127.0.0.1', remote_port: 3306, type: 'local', uuid: '117aacde-5adf-4a6d-a0f9-5acdddf4a5b9', auto_start: nil },
           ],
         })
       end

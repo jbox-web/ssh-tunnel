@@ -59,8 +59,8 @@ en:
       user: User
       host: Host
       port: Port
-      tunnel_name: Tunnel Name
-      tunnel_type: Tunnel Type
+      tunnel_name: Name
+      tunnel_type: Type
       local_host: Local Host
       local_port: Local Port
       remote_host: Remote Host

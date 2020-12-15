@@ -114,13 +114,13 @@ module SSHTunnel
 
 
           def tunnels_treeview_add_columns(treeview)
-            add_text_column treeview, t('view.host.tunnel_uuid'), text: TUNNEL_UUID_COLUMN, visible: false
-            add_text_column treeview, t('view.host.tunnel_name'), text: TUNNEL_NAME_COLUMN
-            add_text_column treeview, t('view.host.tunnel_type'), text: TUNNEL_TYPE_COLUMN
-            add_text_column treeview, t('view.host.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN
-            add_text_column treeview, t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
-            add_text_column treeview, t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
-            add_text_column treeview, t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
+            add_text_column treeview, t('view.tunnel.uuid'),        text: TUNNEL_UUID_COLUMN, visible: false
+            add_text_column treeview, t('view.tunnel.name'),        text: TUNNEL_NAME_COLUMN
+            add_text_column treeview, t('view.tunnel.type'),        text: TUNNEL_TYPE_COLUMN
+            add_text_column treeview, t('view.tunnel.local_host'),  text: TUNNEL_LOCAL_HOST_COLUMN
+            add_text_column treeview, t('view.tunnel.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
+            add_text_column treeview, t('view.tunnel.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
+            add_text_column treeview, t('view.tunnel.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
           end
 
 

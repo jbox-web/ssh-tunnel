@@ -59,9 +59,10 @@ en:
       user: User
       host: Host
       port: Port
-      tunnel_uuid: UUID
-      tunnel_name: Name
-      tunnel_type: Type
+    tunnel:
+      uuid: UUID
+      name: Name
+      type: Type
       local_host: Local Host
       local_port: Local Port
       remote_host: Remote Host

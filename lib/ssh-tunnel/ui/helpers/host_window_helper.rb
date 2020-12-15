@@ -106,10 +106,27 @@ module SSHTunnel
           def create_tunnels_treeview(model)
             treeview = Gtk::TreeView.new(model)
 
+            # edit tunnel on double-click
+            tunnels_treeview_bind_double_click(treeview)
+
             # add columns to the tree view
             tunnels_treeview_add_columns(treeview)
 
             treeview
+          end
+
+
+          def tunnels_treeview_bind_double_click(treeview)
+            treeview.signal_connect :row_activated do |_widget, path|
+              if path.to_s.include?(':')
+                false
+              else
+                with_tunnel_model do |object|
+                  window = SSHTunnel::UI::Windows::Tunnels::EditWindow.new(application, self, object)
+                  window.present
+                end
+              end
+            end
           end
 
 

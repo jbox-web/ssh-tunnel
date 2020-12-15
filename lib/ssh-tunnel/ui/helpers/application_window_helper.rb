@@ -8,6 +8,7 @@ module SSHTunnel
         include SSHTunnel::UI::Helpers::Common::MinimizeHelper
         include SSHTunnel::UI::Helpers::Common::ToolbarHelper
         include SSHTunnel::UI::Helpers::Common::TranslationHelper
+        include SSHTunnel::UI::Helpers::Common::TreeViewHelper
 
 
         def self.included(base)
@@ -181,29 +182,6 @@ module SSHTunnel
             add_text_column  treeview,  t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
             add_text_column  treeview,  t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
             add_text_column  treeview,  t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
-          end
-
-
-          def add_text_column(treeview, label, attributes)
-            renderer = Gtk::CellRendererText.new
-            add_column(renderer, treeview, label, attributes)
-          end
-
-
-          def add_image_column(treeview, label, attributes)
-            renderer = Gtk::CellRendererPixbuf.new
-            add_column(renderer, treeview, label, attributes)
-          end
-
-
-          def add_column(renderer, treeview, label, attributes)
-            visible = attributes.delete(:visible) { true }
-            col_offset = treeview.insert_column(-1, label, renderer, attributes)
-
-            column = treeview.get_column(col_offset - 1)
-            column.clickable = true
-            column.visible = visible
-            column.sort_column_id = attributes[:text] if attributes[:text]
           end
 
 

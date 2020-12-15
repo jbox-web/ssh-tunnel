@@ -7,6 +7,7 @@ module SSHTunnel
 
         include SSHTunnel::UI::Helpers::Common::ModalHelper
         include SSHTunnel::UI::Helpers::Common::TranslationHelper
+        include SSHTunnel::UI::Helpers::Common::TreeViewHelper
         include SSHTunnel::UI::Helpers::Common::FormHelper::InstanceMethods
 
         def self.included(base)
@@ -118,13 +119,6 @@ module SSHTunnel
             add_text_column treeview, t('view.host.local_port'),  text: TUNNEL_LOCAL_PORT_COLUMN
             add_text_column treeview, t('view.host.remote_host'), text: TUNNEL_REMOTE_HOST_COLUMN
             add_text_column treeview, t('view.host.remote_port'), text: TUNNEL_REMOTE_PORT_COLUMN
-          end
-
-
-          def add_text_column(treeview, label, attributes)
-            renderer = Gtk::CellRendererText.new
-            column   = Gtk::TreeViewColumn.new(label, renderer, attributes)
-            treeview.append_column(column)
           end
 
 

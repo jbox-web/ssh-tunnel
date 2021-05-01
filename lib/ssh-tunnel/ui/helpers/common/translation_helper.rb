@@ -7,7 +7,7 @@ module SSHTunnel
         module TranslationHelper
           extend ActiveSupport::Concern
 
-          def t(*args)
+          ruby2_keywords def t(*args)
             I18n.t(*args)
           end
 

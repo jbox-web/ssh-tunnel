@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'activesupport', '>= 5.2'
   s.add_runtime_dependency 'gtk3'
   s.add_runtime_dependency 'i18n'
+  s.add_runtime_dependency 'ruby2_keywords'
   s.add_runtime_dependency 'subprocess'
   s.add_runtime_dependency 'zeitwerk'
 

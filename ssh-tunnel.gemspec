@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = 'A Ruby/GTK3 gem to manage SSH tunnels'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 2.6.0'
+  s.required_ruby_version = '>= 2.7.0'
 
   s.files = %x(git ls-files).split("\n")
 

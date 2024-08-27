@@ -31,7 +31,6 @@ require 'active_model'
 require 'active_support/concern'
 require 'active_support/core_ext/hash'
 require 'active_support/core_ext/string'
-require 'ruby2_keywords'
 
 require 'zeitwerk'
 loader = Zeitwerk::Loader.for_gem

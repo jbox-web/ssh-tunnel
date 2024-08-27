@@ -1,5 +1,8 @@
 require 'simplecov'
 require 'rspec'
+
+# fix for https://github.com/thoughtbot/factory_bot/issues/1690
+require 'active_support/inflector'
 require 'factory_bot'
 
 # Start Simplecov

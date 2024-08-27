@@ -19,20 +19,10 @@ Gem::Specification.new do |s|
   s.bindir      = 'exe'
   s.executables = ['ssh-tunnel']
 
-  s.add_runtime_dependency 'activemodel', '>= 5.2'
-  s.add_runtime_dependency 'activesupport', '>= 5.2'
-  s.add_runtime_dependency 'gtk3'
-  s.add_runtime_dependency 'i18n'
-  s.add_runtime_dependency 'ruby2_keywords'
-  s.add_runtime_dependency 'subprocess'
-  s.add_runtime_dependency 'zeitwerk'
-
-  s.add_development_dependency 'factory_bot'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'rubocop-rake'
-  s.add_development_dependency 'rubocop-rspec'
-  s.add_development_dependency 'simplecov'
+  s.add_dependency 'activemodel', '>= 7.0'
+  s.add_dependency 'activesupport', '>= 7.0'
+  s.add_dependency 'gtk3'
+  s.add_dependency 'i18n'
+  s.add_dependency 'subprocess'
+  s.add_dependency 'zeitwerk'
 end

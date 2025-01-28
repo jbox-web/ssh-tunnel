@@ -33,15 +33,13 @@ jobs:
       - name: Update APT
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgirepository1.0-dev
+          sudo apt-get install -y libgirepository1.0-dev libgdk-pixbuf2.0-dev
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-
-      - name: Bundle install
-        run: bundle install
+          bundler-cache: true
 
       - name: Fake screen
         run: Xvfb :99 &

@@ -2,8 +2,16 @@
 name: CI
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 4 1 * *'
+  # Run workflow manually
+  workflow_dispatch:
 
 jobs:
   rspec:
@@ -38,9 +46,9 @@ jobs:
         run: Xvfb :99 &
 
       - name: RSpec & publish code coverage
-        uses: paambaati/codeclimate-action@v8.0.0
+        uses: paambaati/codeclimate-action@v9.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           DISPLAY: ':99'
         with:
-          coverageCommand: bin/rake
+          coverageCommand: bin/rspec

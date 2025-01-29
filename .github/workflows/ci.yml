@@ -38,7 +38,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
+          # We cannot use bundler cache here:
+          # Failure/Error: require 'gtk3'
+          # GObjectIntrospection::RepositoryError::TypelibNotFound:
+          #   Typelib file for namespace 'Atk' (any version) not found
+          # bundler-cache: true
+
+      - name: Bundle install
+        run: bundle install
 
       - name: Fake screen
         run: Xvfb :99 &

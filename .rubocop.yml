@@ -1,4 +1,6 @@
-require:
+plugins:
+  - rubocop-factory_bot
+  - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
 
@@ -9,7 +11,7 @@ AllCops:
     - bin/*
     - spec/**/*
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
 Metrics/AbcSize:

@@ -172,7 +172,7 @@ module SSHTunnel
           # rubocop:enable Style/SoleNestedConditional
 
 
-          def hosts_treeview_add_columns(treeview)
+          def hosts_treeview_add_columns(treeview) # rubocop:disable Metrics/MethodLength
             add_image_column treeview,  t('view.host.state'),         'icon-name': HOST_STATE_COLUMN
             add_text_column  treeview,  t('view.host.uuid'),          text: HOST_UUID_COLUMN, visible: false
             add_text_column  treeview,  t('view.host.name'),          text: HOST_NAME_COLUMN

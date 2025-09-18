@@ -57,7 +57,7 @@ module SSHTunnel
         end
 
 
-        def auto_start!
+        def auto_start! # rubocop:disable Naming/PredicateMethod
           return false unless auto_start?
 
           start!
@@ -95,7 +95,7 @@ module SSHTunnel
         end
 
 
-        def command
+        def command # rubocop:disable Metrics/MethodLength
           cmd = [
             '/usr/bin/ssh',
             '-N',

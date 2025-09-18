@@ -7,7 +7,7 @@ module SSHTunnel
         module ModalHelper
 
           def initialize(application, window, *)
-            super application: application
+            super(application: application)
 
             # Set instance variables
             @application = application

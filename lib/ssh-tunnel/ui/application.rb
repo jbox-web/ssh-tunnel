@@ -9,7 +9,7 @@ module SSHTunnel
 
       # rubocop:disable Metrics/MethodLength
       def initialize
-        super 'com.jbox-web.ssh-tunnel', Gio::ApplicationFlags::FLAGS_NONE
+        super('com.jbox-web.ssh-tunnel', Gio::ApplicationFlags::FLAGS_NONE)
 
         @config = SSHTunnel.config
 

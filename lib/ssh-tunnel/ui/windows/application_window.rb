@@ -24,7 +24,7 @@ module SSHTunnel
 
 
         def initialize(application)
-          super application: application
+          super(application: application)
 
           # Set instance variables
           @application = application

@@ -77,7 +77,7 @@ module SSHTunnel
 
 
             def render_form_errors(errors)
-              form_fields.each do |field_name, _method|
+              form_fields.each_key do |field_name|
                 has_errors = errors.of_kind?(field_name, :blank) || errors.of_kind?(field_name, :inclusion)
                 input = "input_#{field_name}"
                 field = __send__(input)
@@ -153,7 +153,7 @@ module SSHTunnel
 
 
             def set_input_labels(scope:)
-              form_fields.each do |field_name, _method|
+              form_fields.each_key do |field_name|
                 label  = "label_#{field_name}"
                 field  = __send__(label)
                 value  = t("form.#{scope}.#{field_name}")

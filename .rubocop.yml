@@ -11,8 +11,28 @@ AllCops:
     - bin/*
     - spec/**/*
 
+Gemspec/RequireMFA:
+  Enabled: false
+
+#########
+# STYLE #
+#########
+
 Style/Documentation:
   Enabled: false
+
+Style/CommandLiteral:
+  EnforcedStyle: percent_x
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+###########
+# METRICS #
+###########
 
 Metrics/AbcSize:
   Enabled: false
@@ -25,6 +45,10 @@ Metrics/ModuleLength:
 
 Metrics/ClassLength:
   Max: 160
+
+##########
+# LAYOUT #
+##########
 
 Layout/LineLength:
   Enabled: false
@@ -50,14 +74,9 @@ Layout/EmptyLineBetweenDefs:
 Layout/HashAlignment:
   Enabled: false
 
-Style/CommandLiteral:
-  EnforcedStyle: percent_x
-
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: comma
-
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: comma
+##########
+# NAMING #
+##########
 
 Naming/FileName:
   Exclude:

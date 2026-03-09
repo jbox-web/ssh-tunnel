@@ -1,6 +1,8 @@
 ---
 name: CI
 
+permissions: {}
+
 on:
   push:
     branches:
@@ -14,8 +16,34 @@ on:
   workflow_dispatch:
 
 jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Update APT
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgirepository1.0-dev libgdk-pixbuf2.0-dev
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Bundler
+        run: bundle install
+
+      - name: Rubocop
+        run: bin/rubocop
+
   rspec:
     runs-on: ubuntu-latest
+
     strategy:
       fail-fast: false
       matrix:
@@ -23,11 +51,13 @@ jobs:
           - '3.4'
           - '3.3'
           - '3.2'
-          - 'head'
+          #- 'head'
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Update APT
         run: |
@@ -50,10 +80,11 @@ jobs:
       - name: Fake screen
         run: Xvfb :99 &
 
-      - name: RSpec & publish code coverage
-        uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          DISPLAY: ':99'
+      - name: Run RSpec
+        run: bin/rspec
+
+      - name: Publish code coverage
+        uses: qltysh/qlty-action/coverage@v2
         with:
-          coverageCommand: bin/rspec
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/coverage.json

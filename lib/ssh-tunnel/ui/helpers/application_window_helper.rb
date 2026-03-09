@@ -116,7 +116,7 @@ module SSHTunnel
             # sub-rows are not clickable
             treeview.selection.mode = :single
             treeview.selection.set_select_function do |_selection, _model, path, _path_currentry_selected|
-              path.to_s.include?(':') ? false : true
+              !path.to_s.include?(':')
             end
 
             # Disable buttons if tunnels are running

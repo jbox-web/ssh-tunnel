@@ -61,9 +61,7 @@ module SSHTunnel
 
 
           def write_yaml_file(file, data)
-            File.open(file, 'w+') do |f|
-              f.write JSON.pretty_generate(data)
-            end
+            File.write(file, JSON.pretty_generate(data))
           end
 
 

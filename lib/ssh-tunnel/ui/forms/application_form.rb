@@ -20,13 +20,13 @@ module SSHTunnel
             self.attributes += [name]
           end
 
-          # rubocop:disable Layout/EmptyLinesAroundAttributeAccessor
-          private def create_attribute(name, opts = {})
-            required = opts.fetch(:required, false)
-            attr_accessor name
-            validates_presence_of(name) if required
-          end
-          # rubocop:enable Layout/EmptyLinesAroundAttributeAccessor
+          private
+
+            def create_attribute(name, opts = {})
+              required = opts.fetch(:required, false)
+              attr_accessor name # rubocop:disable Layout/EmptyLinesAroundAttributeAccessor
+              validates_presence_of(name) if required
+            end
 
         end
 
@@ -60,7 +60,7 @@ module SSHTunnel
 
 
           def cast_to_int(value)
-            Integer(value) rescue value
+            Integer(value, exception: false) || value
           end
 
       end

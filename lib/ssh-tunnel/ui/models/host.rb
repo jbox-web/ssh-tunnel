@@ -5,7 +5,8 @@ module SSHTunnel
     module Models
       class Host
 
-        attr_accessor :uuid, :name, :user, :host, :port, :identity_file, :tunnels
+        attr_writer :port
+        attr_accessor :uuid, :name, :user, :host, :identity_file, :tunnels
 
 
         def initialize(opts = {})

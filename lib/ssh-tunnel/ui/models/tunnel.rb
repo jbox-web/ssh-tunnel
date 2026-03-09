@@ -5,7 +5,8 @@ module SSHTunnel
     module Models
       class Tunnel
 
-        attr_accessor :uuid, :name, :parent, :type, :local_host, :local_port, :remote_host, :remote_port, :auto_start
+        attr_writer :local_port, :remote_port
+        attr_accessor :uuid, :name, :parent, :type, :local_host, :remote_host, :auto_start
 
 
         def initialize(opts = {})

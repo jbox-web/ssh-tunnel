@@ -100,7 +100,7 @@ module SSHTunnel
 
         begin
           status = app.run
-        rescue Interrupt => e
+        rescue Interrupt => _e
           status = 0
         ensure
           SSHTunnel.config.hosts.each(&:stop_tunnels!)

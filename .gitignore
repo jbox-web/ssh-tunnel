@@ -25,3 +25,6 @@
 # Snap files
 /*.snap
 /*.bz2
+
+# Ignore MacOS files
+.DS_Store

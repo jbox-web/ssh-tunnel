@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/ssh-tunnel'
+
+# Parse options
+cli = SSHTunnel::CLI.instance
+cli.parse
+
+# Start application
+status = cli.run
+exit status
